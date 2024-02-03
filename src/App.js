@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Header from "./Components/Header";
+import BestDeals from "./Components/BestDeals";
+import Membership from "./Components/Membership";
+import NewRelease from "./Components/NewReleased";
+import NewReleaseOne from "./Components/NewReleasedOne";
+import NewReleaseTwo from "./Components/NewReleasedTwo";
+import Footer from "./Components/Footer";
+import CopyrightNotice from "./Components/Copyright";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <div>
+        <BestDeals />
+        <Membership />
+        <NewRelease />
+        <NewReleaseOne />
+        <NewReleaseTwo />
+        <Footer />
+        <CopyrightNotice />
+      </div>
     </div>
   );
 }
