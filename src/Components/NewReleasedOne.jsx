@@ -2,7 +2,7 @@ import { citrus } from "../Assets";
 const NewReleaseOne = () => {
   return (
     <>
-      <div className="d-flex flex-row" style={{ marginRight: "1500px" }}>
+      <div className="d-flex flex-row" style={{ margin: "5vw" }}>
         <div className="d-flex flex-row">
           <div>
             <img

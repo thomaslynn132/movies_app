@@ -27,7 +27,9 @@ const Vapes = () => {
   console.log("Current Index:", currentIndex);
 
   return (
-    <div className="d-flex flex-row">
+    <div
+      className="d-flex flex-row"
+      style={{ marginLeft: "5vw", marginRight: "5vw" }}>
       <div className="dealsArrow">
         <FaArrowLeft
           onClick={handleLeftArrowClick}
@@ -35,17 +37,13 @@ const Vapes = () => {
         />
       </div>
 
-      <div className="dealsArrow" onClick={handleRightArrowClick}>
-        <FaArrowRight style={{ color: "black" }} />
-      </div>
       <div className="d-flex flex-row rounded">
         {images.map((image, index) => (
           <div
             key={index}
             className={"d-flex flex-column bestDeal rounded bestDealShadowAdd"}
             style={{
-              zIndex: "",
-              width: "17vw",
+              boxSizing: "border-box",
               transform: `translateX(-${currentIndex * (260 + 16)}px)`,
               transition: "transform 0.5s ease-in-out",
             }}>
@@ -66,6 +64,10 @@ const Vapes = () => {
             </p>
           </div>
         ))}
+      </div>
+
+      <div className="dealsArrow" onClick={handleRightArrowClick}>
+        <FaArrowRight style={{ color: "black" }} />
       </div>
     </div>
   );

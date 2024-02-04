@@ -28,17 +28,18 @@ const BestDeals = () => {
   console.log("Current Index:", currentIndex);
 
   return (
-    <div className="">
+    <div className="my-5" style={{ marginLeft: "5vw", marginRight: "5vw" }}>
       <p className="fs-1">Best Deals</p>
-      <div className="d-flex flex-row mb-5 imgCtn">
+      <div className="d-flex flex-row imgCtn">
         <div className="dealsArrow" onClick={handleLeftArrowClick}>
           <FaArrowLeft />
         </div>
+
         <div className="d-flex flex-row Images">
           {images.map((image, index) => (
             <div
               key={index}
-              className={"d-flex flex-column mb-3 bestDealShadowAdd"}
+              className={"d-flex flex-column bestDealShadowAdd"}
               style={{
                 width: "90vw",
                 transform: `translateX(-${currentIndex * (260 + 16)}px)`,
@@ -66,11 +67,12 @@ const BestDeals = () => {
             </div>
           ))}
         </div>
+
         <div className="dealsArrow" onClick={handleRightArrowClick}>
           <FaArrowRight />
         </div>
       </div>
-      <button className="rounded-pill viewBtn1 ml-5">
+      <button className="rounded-pill viewBtn1 mb-5">
         View More <IoIosArrowForward />
       </button>
     </div>

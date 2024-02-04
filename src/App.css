@@ -10,6 +10,11 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+/* Hide the scrollbar in WebKit/Blink browsers */
+body::-webkit-scrollbar {
+  display: none;
+}
 .dealsArrow {
   height: 50px;
   width: 15px;
@@ -18,10 +23,17 @@ body {
   background-color: #7b7b7b;
   z-index: 2;
 }
+
 .Images {
-  white-space: unset;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  flex-direction: row;
+  margin: 25px;
   width: 90vw;
   height: auto;
+}
+.Images::-webkit-scrollbar {
+  display: none;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
@@ -41,8 +53,9 @@ code {
   background-color: rgb(142, 142, 142, 0.5);
 }
 .citrus-text {
+  padding: 15px;
   height: 300px;
-  width: 50vw;
+  width: 40vw;
   padding-top: 75px;
 }
 .citrus-img {
@@ -94,7 +107,6 @@ code {
 .footer {
   display: inline;
   width: 100vw;
-
   align-items: flex-start;
   box-sizing: border-box;
 }
@@ -103,6 +115,7 @@ code {
   height: auto;
   display: inline-block;
   margin: 25px;
+  box-sizing: border-box;
 }
 .viewBtn:hover {
   background-color: #7b7b7b;
@@ -130,8 +143,12 @@ code {
 .membership {
   background-color: rgb(54, 54, 54);
   color: #ffffff;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
+}
+.Instagram {
+  background-image: linear-gradient(45deg, #e6b140, #db518b, #833ab4, #752ecb);
+  color: white;
 }
 .membership:hover {
   background-color: rgb(65, 65, 65);
@@ -147,7 +164,7 @@ code {
 
 .product-container:hover {
   background-color: rgb(142, 142, 142);
-  transition: 3s;
+  transition: 1s;
 }
 
 .slideshowContainer {
@@ -181,12 +198,4 @@ code {
     opacity: 1;
     transform: translateY(0);
   }
-}
-@media screen and (max-width: 900) {
-  .memberImg {
-    display: none;
-  }
-}
-.marginPadding {
-  margin-right: 10vw;
 }

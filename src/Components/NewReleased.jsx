@@ -2,7 +2,7 @@ import React from "react";
 import { yellow, pink, blue, green } from "../Assets/index";
 import { IoIosArrowForward } from "react-icons/io";
 
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 const NewRelease = () => {
   const products = [
     {
@@ -51,15 +51,14 @@ const NewRelease = () => {
         <Col lg={12}>
           <Row>
             {products.map((product, index) => (
-              <Col key={index} md={6} className="mb-4">
+              <Col key={index} md={6} className="mb-4 bsbb">
                 <div
                   className="product-container p-3 rounded"
                   style={{
                     backgroundColor: product.bgColor,
-                    height: "15vw",
-                    width: "auto",
+                    boxSizing: "border-box",
                   }}>
-                  <div className="text-white">
+                  <div className="text-dark">
                     <p className="font-weight-bold">
                       {product.stLine} <br />
                       {product.ndLine} <br />
@@ -73,6 +72,7 @@ const NewRelease = () => {
                       src={product.image}
                       alt={product.stLine}
                       className="img-fluid"
+                      style={{ height: "200px", width: "auto" }}
                     />
                   </div>
                 </div>

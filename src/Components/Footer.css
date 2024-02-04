@@ -1,0 +1,41 @@
+/* styles.css */
+
+/* Add general styles for the footerContent */
+.footerContent {
+  margin-bottom: 20px;
+}
+
+/* Adjust styles for mobile view */
+@media (max-width: 575.98px) {
+  .footerCtn {
+    display: flex;
+    flex-direction: column;
+  }
+  .footerContent {
+    width: 100%;
+  }
+}
+
+/* Adjust styles for tablet view */
+@media (min-width: 576px) and (max-width: 991.98px) {
+  .footerCtn {
+    display: flex;
+    flex-direction: column;
+  }
+  .footerContent {
+    width: 50%;
+  }
+}
+
+/* Adjust styles for desktop view */
+@media (min-width: 992px) {
+  .footerCtn {
+    display: flex;
+    flex-direction: row;
+  }
+  .footerContent {
+    width: 33.33%;
+  }
+}
+
+/* Additional styling for Instagram icon */
