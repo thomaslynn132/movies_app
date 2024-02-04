@@ -27,7 +27,7 @@ const Footer = () => {
           </div>
           <div className="footerContent">
             <h5>Language</h5>
-            <div className="d-flex flex-row" style={{ textAlign: "start" }}>
+            <div className="d-flex flex-row " style={{ alignItems: "center" }}>
               <input type="radio" name="Language" value="English" />
               <label className="mx-1">English</label>
             </div>
@@ -79,12 +79,12 @@ const Footer = () => {
                 size={30}
                 className="m-1"
                 style={{ color: "#1877F2" }}
-              />{" "}
+              />
               <FaInstagram
                 size={30}
                 color="white"
                 className="m-1 rounded Instagram"
-              />{" "}
+              />
               <FaViber
                 size={30}
                 className="rounded m-1"

@@ -67,7 +67,7 @@ export default function Header() {
           }}>
           <div className="d-flex flex-row justify-content-between mx-3 my-1">
             <div className="flex-start">
-              <img src={pi} alt="Logo" height={15} width={15} />
+              <img src={pi} alt="Logo" height={30} width={30} />
             </div>
             <div
               className="flex-end"
