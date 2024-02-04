@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import React from "react";
 import {
   mint,
   mint1,
@@ -12,43 +11,18 @@ import {
 
 const Vapes = () => {
   const images = [mint, mint1, mint2, mint3, mint4, mint5, mint6];
-  const totalImages = images.length;
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const handleLeftArrowClick = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + totalImages) % totalImages);
-  };
-
-  const handleRightArrowClick = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % totalImages);
-  };
-
-  console.log("Current Index:", currentIndex);
 
   return (
     <div
       className="d-flex flex-row"
       style={{ marginLeft: "5vw", marginRight: "5vw", alignItems: "center" }}>
-      <div className="dealsArrow">
-        <FaArrowLeft
-          onClick={handleLeftArrowClick}
-          style={{ color: "black" }}
-        />
-      </div>
-
       <div className="d-flex flex-row rounded vapeImages">
         {images.map((image, index) => (
           <div
             key={index}
             className={
               "d-flex flex-column bestDeal rounded devImg bestDealShadowAdd"
-            }
-            style={{
-              boxSizing: "border-box",
-              transform: `translateX(-${currentIndex * (260 + 16)}px)`,
-              transition: "transform 0.5s ease-in-out",
-            }}>
+            }>
             <img src={image} alt={`Mint ${index + 1}`} className="vapesImg" />
             <p>
               <p className="fs-4 text-dark">
@@ -61,10 +35,6 @@ const Vapes = () => {
             </p>
           </div>
         ))}
-      </div>
-
-      <div className="dealsArrow" onClick={handleRightArrowClick}>
-        <FaArrowRight style={{ color: "black" }} />
       </div>
     </div>
   );
