@@ -6,7 +6,7 @@ import mint1 from "./mint1.png";
 import mint2 from "./mint2.png";
 import mint3 from "./mint3.png";
 import mint4 from "./mint4.png";
-import mint5 from "./mint5.jpg";
+import mint5 from "./mint5.png";
 import mint6 from "./mint6.png";
 import orangew from "./orangew.png";
 import pink from "./pink.png";

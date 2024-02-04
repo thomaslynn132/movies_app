@@ -51,7 +51,7 @@ const NewRelease = () => {
         <Col lg={12}>
           <Row>
             {products.map((product, index) => (
-              <Col key={index} md={6} className="mb-4 bsbb">
+              <Col key={index} md={6} className="mb-4 devImg bsbb">
                 <div
                   className="product-container p-3 rounded"
                   style={{
@@ -67,12 +67,11 @@ const NewRelease = () => {
                       {product.price}
                     </p>
                   </div>
-                  <div className="text-center">
+                  <div className="nRImgDiv">
                     <img
                       src={product.image}
                       alt={product.stLine}
-                      className="img-fluid"
-                      style={{ height: "200px", width: "auto" }}
+                      className="img-fluid newReleasedImg"
                     />
                   </div>
                 </div>

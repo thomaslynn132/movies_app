@@ -23,7 +23,29 @@ body::-webkit-scrollbar {
   background-color: #7b7b7b;
   z-index: 2;
 }
+.dealsArrow:hover {
+  height: 75px;
+  width: 30px;
+  padding-top: 25px;
+  transition: 1s;
+}
+.vapeImages {
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  flex-direction: row;
+  margin: 25px;
+  width: 50vw;
+  height: auto;
+}
 
+.vapeImages::-webkit-scrollbar {
+  display: none;
+}
+.nrText {
+  width: 150px;
+  height: auto;
+  font-size: small;
+}
 .Images {
   overflow-x: scroll;
   scroll-behavior: smooth;
@@ -39,8 +61,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.headerBtn {
+  margin-top: 75px;
+}
 .headerText {
-  margin-top: 450px;
+  h1 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5),
+      -4px -4px 8px rgba(255, 255, 255, 0.5);
+  }
+  h4,
+  h5 {
+    font-weight: lighter;
+    -webkit-text-stroke: 0.2px black;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5),
+      -1px -1px 2px rgba(255, 255, 255, 0.5);
+  }
+  margin-top: 350px;
 }
 .headerArrow {
   height: 75px;
@@ -51,12 +87,20 @@ code {
 
   background-color: rgb(142, 142, 142, 0.5);
 }
+.headerArrow:hover {
+  height: 100px;
+  width: 35px;
+  padding-top: 40px;
+  transition: 1s;
+  background-color: #bfbfbf;
+}
 .citrus-text {
   padding: 15px;
   height: 300px;
   width: 40vw;
   padding-top: 75px;
 }
+
 .citrus-img {
   height: 300px;
   width: 50vw;
@@ -72,6 +116,10 @@ code {
 .yellow {
   color: yellow;
 }
+.bestDealImg {
+  height: 200px;
+  width: 225px;
+}
 .bestDealShadowAdd {
   box-sizing: border-box;
 }
@@ -83,8 +131,42 @@ code {
   background-color: rgb(142, 142, 142, 0.5);
 }
 .bestDeal:hover {
-  background-color: #bfbfbf;
+  background-color: #b1b0b0;
   transition: 1.5s;
+  .fs-4 {
+    transition: 1s;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8),
+      -4px -4px 8px rgba(255, 255, 255, 0.5);
+  }
+  .bestDealImg {
+    height: 220px;
+    width: 245px;
+    transition: 1s;
+    transform: scaleX(0.7);
+    transform: rotate(20deg);
+  }
+}
+.vapes {
+  align-items: center;
+}
+.vapesImg {
+  height: 150px;
+  width: 150px;
+}
+.nRImgDiv {
+  height: auto;
+  width: 150px;
+}
+.newReleasedImg {
+  height: 150px;
+  width: auto;
+}
+.devImg:hover {
+  img {
+    transition: 1s;
+    transform: scaleY(0.4);
+    transform: rotate(20deg);
+  }
 }
 .App {
   text-align: center;

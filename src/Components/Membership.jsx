@@ -14,10 +14,10 @@ const Membership = () => {
       className="d-flex my-5 flex-row membershipCtn"
       style={{ marginLeft: "5vw", marginRight: "5vw" }}>
       <div
-        className="d-flex flex-row m-1 membership rounded"
+        className="d-flex flex-row m-2 membership ps-4 rounded"
         style={{ width: "50vw", height: "auto" }}>
         <div className="d-flex flex-column justify-content-start p-2">
-          <div className="d-flex flex-row start">
+          <div className="d-flex flex-row start mb-5">
             <img
               src={diamond}
               alt="diamond"
@@ -34,20 +34,25 @@ const Membership = () => {
               style={{ width: "7vw", height: "auto" }}
             />
           </div>
-          <div className="me-4 start">
+          <div className="my-2 start">
             <img
               src={member}
               alt="membership"
-              style={{ width: "25vw", height: "auto" }}
+              style={{
+                width: "25vw",
+                height: "auto",
+                marginLeft: "0px",
+                marginRight: "auto",
+              }}
             />
           </div>
           <div className="text-start ">
-            <p className="fs-6">
+            <p className="fs-6 mb-4">
               Be a Vape Pi member and <br /> get our special exclusive offers
             </p>
           </div>
           <div>
-            <button className="rounded-pill viewBtn mt-3 me-5">View</button>
+            <button className="rounded-pill viewBtn my-3 me-5">View</button>
           </div>
         </div>
         {/* <div className="mt-auto memberImg end">
@@ -64,16 +69,17 @@ const Membership = () => {
         </div> */}
       </div>
       <div className="d-flex m-1 flex-row">
-        <div className="d-flex flex-column membership m-1 rounded">
+        <div className="d-flex flex-column membership m-1 rounded devImg">
           <div className="">
             <img
               src={black}
               alt="black"
-              style={{ width: "15vw", height: "auto" }}
+              className="pt-5"
+              style={{ width: "20vw", height: "200px" }}
             />
           </div>
           <div
-            className="d-flex flex-row justify-content-between flex-row"
+            className="pb-3 d-flex  flex-row justify-content-between flex-row"
             style={{
               justifyContent: "center",
               alignItems: "center",
@@ -93,7 +99,7 @@ const Membership = () => {
           </div>
         </div>
         <div className="d-flex flex-column">
-          <div className="d-flex flex-column membership m-1 p-2 rounded">
+          <div className="d-flex flex-column membership m-1 py-3  rounded devImg">
             <div className="" style={{ width: "15vw", height: "auto" }}>
               <img src={blacklip} alt="red" />
             </div>
@@ -117,7 +123,7 @@ const Membership = () => {
               </div>
             </div>
           </div>
-          <div className="d-flex flex-column membership m-1 p-2 rounded">
+          <div className="d-flex flex-column membership m-1 py-4 rounded devImg">
             <div className="" style={{ height: "auto", width: "20vw" }}>
               <img src={red} alt="red" width={100} />
             </div>

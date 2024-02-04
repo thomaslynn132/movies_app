@@ -67,7 +67,7 @@ export default function Header() {
           }}>
           <div className="d-flex flex-row justify-content-between mx-3 my-1">
             <div className="flex-start">
-              <img src={pi} alt="Logo" height={30} width={30} />
+              <img src={pi} alt="Logo" height={20} width={20} />
             </div>
             <div
               className="flex-end"
@@ -90,13 +90,13 @@ export default function Header() {
                 <FaArrowRight onClick={handleRightArrowClick} />
               </div>
             </div>
-          </div>{" "}
+          </div>
           <div className="headerBtn">
             {[0, 1, 2, 3, 4, 5].map((index) => (
               <button
                 key={index}
                 type="button"
-                className={`btn rounded m-1 ${
+                className={`btn headerBtn rounded m-1 ${
                   index === currentImageIndex
                     ? "btn-outline-dark  bg-success"
                     : "btn-outline-danger"

@@ -42,7 +42,7 @@ const BestDeals = () => {
               className={"d-flex flex-column bestDealShadowAdd"}
               style={{
                 width: "90vw",
-                transform: `translateX(-${currentIndex * (260 + 16)}px)`,
+                transform: `translateX(-${currentIndex * (225 + 10)}px)`,
                 transition: "transform 0.5s ease-in-out",
               }}>
               <div className=" rounded bestDeal">
@@ -52,8 +52,7 @@ const BestDeals = () => {
                 <img
                   src={image}
                   alt={`Mint ${index + 1}`}
-                  height={225}
-                  width={260}
+                  className="bestDealImg"
                 />
               </div>
               <p>
