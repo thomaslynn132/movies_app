@@ -34,7 +34,7 @@ body::-webkit-scrollbar {
   scroll-behavior: smooth;
   flex-direction: row;
   margin: 25px;
-  width: 50vw;
+  width: 55vw;
   height: auto;
 }
 

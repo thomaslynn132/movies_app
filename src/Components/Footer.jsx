@@ -17,7 +17,7 @@ const Footer = () => {
     <div className="container-fluid">
       <div className="footerCtn">
         <div className="d-flex flex-row">
-          <div className="footerContent">
+          <div className="footerContent d-flex flex-column text-start">
             <h5>Customer Service</h5>
             <p style={{ textAlign: "start" }}>
               <MdPrivacyTip className="m-1" />
@@ -25,7 +25,7 @@ const Footer = () => {
               <VscDebugRestart className="m-1" /> Return Policy
             </p>
           </div>
-          <div className="footerContent">
+          <div className="footerContent d-flex flex-column text-start">
             <h5>Language</h5>
             <div className="d-flex flex-row " style={{ alignItems: "center" }}>
               <input type="radio" name="Language" value="English" />
@@ -53,14 +53,19 @@ const Footer = () => {
               <FiPhone className="m-1" /> 09458489458
             </p>
           </div>
-          <div className="footerContent">
+          <div className="footerContent d-flex flex-column text-start">
             <h5>Download Our App</h5>
-            <img src={qr} alt="qr code for download link" height={150} />
+            <img
+              src={qr}
+              alt="qr code for download link"
+              height={150}
+              width={150}
+            />
           </div>
         </div>
 
         <div className="d-flex flex-row">
-          <div className="footerContent">
+          <div className="footerContent d-flex flex-column text-start">
             <h5>Payment</h5>{" "}
             <div className="d-flex flex-row">
               <img src={kbz} alt="KBZ" height={40} className="mx-1 rounded" />
@@ -72,7 +77,7 @@ const Footer = () => {
               />
             </div>
           </div>
-          <div className="footerContent">
+          <div className="footerContent d-flex flex-column text-start">
             <h5>Follow Us On</h5>
             <div className="">
               <FaFacebook
