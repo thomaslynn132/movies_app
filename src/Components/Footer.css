@@ -34,8 +34,6 @@
     flex-direction: row;
   }
   .footerContent {
-    width: 33.33%;
+    width: 30%;
   }
 }
-
-/* Additional styling for Instagram icon */

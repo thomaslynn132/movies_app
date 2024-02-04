@@ -14,10 +14,10 @@ import {
 
 const Footer = () => {
   return (
-    <div className="container-fluid">
+    <div className="container-fluid" style={{ marginRight: "5vw" }}>
       <div className="footerCtn">
-        <div className="d-flex flex-row">
-          <div className="footerContent d-flex flex-column text-start">
+        <div className="d-flex flex-row start">
+          <div className="footerContent d-flex flex-column start text-start">
             <h5>Customer Service</h5>
             <p style={{ textAlign: "start" }}>
               <MdPrivacyTip className="m-1" />
@@ -25,7 +25,7 @@ const Footer = () => {
               <VscDebugRestart className="m-1" /> Return Policy
             </p>
           </div>
-          <div className="footerContent d-flex flex-column text-start">
+          <div className="footerContent d-flex flex-column  text-start">
             <h5>Language</h5>
             <div className="d-flex flex-row " style={{ alignItems: "center" }}>
               <input type="radio" name="Language" value="English" />
@@ -44,7 +44,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="d-flex flex-row">
+        <div className="d-flex flex-row start">
           <div className="footerContent" style={{ textAlign: "start" }}>
             <h5>Contact Us</h5>
             <p>
@@ -64,7 +64,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="d-flex flex-row">
+        <div className="d-flex flex-row start">
           <div className="footerContent d-flex flex-column text-start">
             <h5>Payment</h5>{" "}
             <div className="d-flex flex-row">
