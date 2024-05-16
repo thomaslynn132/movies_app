@@ -1,27 +1,36 @@
 import "./App.css";
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Header from "./Components/Header";
-import BestDeals from "./Components/BestDeals";
-import Membership from "./Components/Membership";
-import NewRelease from "./Components/NewReleased";
-import NewReleaseOne from "./Components/NewReleasedOne";
-import NewReleaseTwo from "./Components/NewReleasedTwo";
-import Footer from "./Components/Footer";
+import "bootstrap";
+import { Router } from "./Components/router";
+// import VideoPlayer from "./Components/VideoPlayer";
 import CopyrightNotice from "./Components/Copyright";
 function App() {
+  // const videoJsOptions = {
+  //   controls: true,
+  //   responsive: true,
+  //   fluid: true,
+  //   sources: [
+  //     {
+  //       src: "https://www.youtube.com/watch?v=yQUmFXzr2NA",
+  //       type: "video/mp4",
+  //     },
+  //   ],
+  // };
+
+  // const handlePlayerReady = (player) => {
+  //   // You can access player in here for further customization
+  //   console.log("Player is ready: ", player);
+  // };
   return (
     <div className="App">
-      <Header />
-      <div>
-        <BestDeals />
-        <Membership />
-        <NewRelease />
-        <NewReleaseOne />
-        <NewReleaseTwo />
-        <Footer />
-        <CopyrightNotice />
-      </div>
+      <Router />
+      {/* <VideoPlayer options={videoJsOptions} onReady={handlePlayerReady} /> */}
+      {/* <video
+        width={900}
+        src="https://nx48182.your-storageshare.de/s/F78ERfraBPi99PR"
+      /> */}
+
+      <CopyrightNotice />
     </div>
   );
 }

@@ -1,7 +1,6 @@
 import React from "react";
 import { yellow, pink, blue, green } from "../Assets/index";
 import { IoIosArrowForward } from "react-icons/io";
-
 import { Container, Row, Col } from "react-bootstrap";
 const NewRelease = () => {
   const products = [

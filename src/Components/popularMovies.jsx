@@ -11,7 +11,7 @@ import {
   mint6,
 } from "../Assets/index";
 
-const BestDeals = () => {
+const PopularMovies = () => {
   const images = [mint, mint1, mint2, mint3, mint4, mint5, mint6];
   const totalImages = images.length;
 
@@ -41,7 +41,7 @@ const BestDeals = () => {
               key={index}
               className={"d-flex flex-column bestDealShadowAdd"}
               style={{
-                width: "90vw",
+                width: "50vw",
                 transform: `translateX(-${currentIndex * (225 + 10)}px)`,
                 transition: "transform 0.5s ease-in-out",
               }}>
@@ -53,6 +53,7 @@ const BestDeals = () => {
                   src={image}
                   alt={`Mint ${index + 1}`}
                   className="bestDealImg"
+                  style={{ width: "30vw", height: "auto" }}
                 />
               </div>
               <p>
@@ -78,4 +79,4 @@ const BestDeals = () => {
   );
 };
 
-export default BestDeals;
+export default PopularMovies;

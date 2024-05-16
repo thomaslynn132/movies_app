@@ -50,7 +50,6 @@ const NewReleaseTwo = () => {
             <p>Easy, clean & superb flavor</p>
           </div>
         </div>
-        <Vapes />
       </div>
     </>
   );

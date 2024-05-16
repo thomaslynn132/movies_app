@@ -15,6 +15,13 @@ body {
 body::-webkit-scrollbar {
   display: none;
 }
+.navBar {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
 .dealsArrow {
   height: 50px;
   width: 15px;

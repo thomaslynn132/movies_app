@@ -1,12 +1,12 @@
 const HeaderText = () => {
   return (
     <>
-      <div className="headerText text-center my-6 fw-lighter">
-        <h4>The Best Look</h4>
-        <h1>Anytime Anywhere</h1>
+      <div className="headerText text-center fw-lighter my-6">
+        <h4 className="text-danger" style={{ color: "cyan", opacity: "0.8" }}>
+          Download Best Quality Movies
+        </h4>
 
-        <h5>Starts from 10,000 MMK</h5>
-        <button className="rounded-pill viewBtn mt-3 me-5">View</button>
+        <h1 style={{ color: "skyblue", opacity: "0.65" }}>Anytime Anywhere</h1>
       </div>
     </>
   );

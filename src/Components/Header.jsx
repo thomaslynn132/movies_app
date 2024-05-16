@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FaSearch, FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import { PiShoppingCart } from "react-icons/pi";
-import { HiMenuAlt2 } from "react-icons/hi";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import {
   wallpaper,
   wallpaper1,
@@ -13,6 +11,7 @@ import {
 } from "../Assets/index";
 
 import HeaderText from "./HeaderText";
+import NavBar from "./NavBar";
 
 export default function Header() {
   const images = [
@@ -65,27 +64,18 @@ export default function Header() {
             fontWeight: "bold",
             alignItems: "center",
           }}>
-          <div className="d-flex flex-row justify-content-between mx-3 my-1">
-            <div className="flex-start">
-              <img src={pi} alt="Logo" height={20} width={20} />
-            </div>
-            <div
-              className="flex-end"
-              style={{ marginRight: "25px", marginLeft: "auto" }}>
-              <FaSearch className="mx-1" />
-              <PiShoppingCart className="mx-1" />
-              <HiMenuAlt2 className="mx-1" />
-            </div>
-            <div></div>
-          </div>
+          <NavBar />
           <div
-            className=" text-center"
+            className=" text-center navBar"
             style={{ marginBottom: "25px", marginTop: "auto" }}>
             <div className="d-flex flex-row justify-content-between align-items-center">
               <div className="headerArrow">
                 <FaArrowLeft onClick={handleLeftArrowClick} />
               </div>
-              <HeaderText />
+              <div>
+                {" "}
+                <HeaderText />
+              </div>
               <div className="headerArrow">
                 <FaArrowRight onClick={handleRightArrowClick} />
               </div>
