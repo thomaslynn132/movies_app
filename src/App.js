@@ -1,6 +1,6 @@
 import "./App.css";
 import React from "react";
-import "bootstrap";
+import "react-bootstrap";
 import { Router } from "./Components/router";
 // import VideoPlayer from "./Components/VideoPlayer";
 import CopyrightNotice from "./Components/Copyright";

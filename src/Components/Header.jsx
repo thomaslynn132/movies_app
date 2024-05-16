@@ -7,7 +7,6 @@ import {
   wallpaper3,
   wallpaper4,
   wallpaper5,
-  pi,
 } from "../Assets/index";
 
 import HeaderText from "./HeaderText";
@@ -33,7 +32,7 @@ export default function Header() {
         setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
         setFade("fade-in");
       }, 500); // Adjust the delay based on your transition duration
-    }, 7000);
+    }, 87000);
 
     return () => clearInterval(slideshowInterval);
   }, [images.length, setCurrentImageIndex, setFade]);
@@ -63,22 +62,18 @@ export default function Header() {
             color: "white",
             fontWeight: "bold",
             alignItems: "center",
+            backgroundSize: "cover",
           }}>
           <NavBar />
-          <div
-            className=" text-center navBar"
-            style={{ marginBottom: "25px", marginTop: "auto" }}>
-            <div className="d-flex flex-row justify-content-between align-items-center">
-              <div className="headerArrow">
-                <FaArrowLeft onClick={handleLeftArrowClick} />
-              </div>
-              <div>
-                {" "}
-                <HeaderText />
-              </div>
-              <div className="headerArrow">
-                <FaArrowRight onClick={handleRightArrowClick} />
-              </div>
+          <div className="navBar">
+            <div className="headerArrow">
+              <FaArrowLeft onClick={handleLeftArrowClick} />
+            </div>
+            <div>
+              <HeaderText />
+            </div>
+            <div className="headerArrow">
+              <FaArrowRight onClick={handleRightArrowClick} />
             </div>
           </div>
           <div className="headerBtn">
