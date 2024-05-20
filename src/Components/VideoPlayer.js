@@ -5,7 +5,6 @@ import "video.js/dist/video-js.css";
 const VideoPlayer = ({ options, onReady }) => {
   const videoRef = useRef(null);
   const playerRef = useRef(null);
-  const [quality, setQuality] = useState("720p");
 
   useEffect(() => {
     if (!playerRef.current) {
@@ -35,31 +34,10 @@ const VideoPlayer = ({ options, onReady }) => {
     };
   }, [playerRef]);
 
-  const changeQuality = (quality) => {
-    const sources = {
-      "360p":
-        "https://nx48182.your-storageshare.de/s/jCe36tkQomzpz7i/download/SSIS-948-09-nommsub-jav.mp4",
-      "720p":
-        "https://nx48182.your-storageshare.de/s/jCe36tkQomzpz7i/download/SSIS-948-09-nommsub-jav.mp4",
-      "1080p":
-        "https://nx48182.your-storageshare.de/s/jCe36tkQomzpz7i/download/SSIS-948-09-nommsub-jav.mp4",
-    };
-
-    if (playerRef.current) {
-      playerRef.current.src({ type: "video/mp4", src: sources[quality] });
-      setQuality(quality);
-    }
-  };
-
   return (
     <div>
       <div data-vjs-player>
         <div ref={videoRef} />
-      </div>
-      <div>
-        <button onClick={() => changeQuality("360p")}>360p</button>
-        <button onClick={() => changeQuality("720p")}>720p</button>
-        <button onClick={() => changeQuality("1080p")}>1080p</button>
       </div>
     </div>
   );
