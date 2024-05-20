@@ -5,51 +5,46 @@ import { storage, ref, uploadBytes, getDownloadURL } from "../firebase";
 export default function AdminPage({ onMovieSubmit }) {
   const [title, setTitle] = useState("");
   const [review, setReview] = useState("");
-  const [coverPhoto, setCoverPhoto] = useState("");
+  const [coverPhoto, setCoverPhoto] = useState(null);
   const [duration, setDuration] = useState("");
   const [genres, setGenres] = useState([]);
   const [releasedYear, setReleasedYear] = useState(2024);
   const [rating, setRating] = useState("");
   const [noOfViews, setNoOfViews] = useState(0);
-  const handleTitleChange = (e) => {
-    setTitle(e.target.value);
-  };
+  const [fhd, setFhd] = useState("");
+  const [hd, setHd] = useState("");
+  const [sd, setSd] = useState("");
 
-  const handleReviewChange = (e) => {
-    setReview(e.target.value);
-  };
-
-  const handleCoverPhotoChange = (e) => {
-    const file = e.target.files[0];
-    setCoverPhoto(file);
-  };
+  const handleTitleChange = (e) => setTitle(e.target.value);
+  const handleReviewChange = (e) => setReview(e.target.value);
+  const handleCoverPhotoChange = (e) => setCoverPhoto(e.target.files[0]);
+  const handleFhdLink = (e) => setFhd(e.target.value);
+  const handleHdLink = (e) => setHd(e.target.value);
+  const handleSdLink = (e) => setSd(e.target.value);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      if (!coverPhoto) {
-        console.error("Cover photo is required.");
-        return;
-      }
-
       const storageRef = ref(
         storage,
         `cover_photos/${Date.now()}_${coverPhoto.name}`
       );
-
       await uploadBytes(storageRef, coverPhoto);
       const coverPhotoUrl = await getDownloadURL(storageRef);
 
       const newMovie = {
-        title: title,
-        review: review,
+        title,
+        review,
         coverPhoto: coverPhotoUrl,
-        duration: duration,
-        genres: genres,
-        releasedYear: releasedYear,
-        rating: rating,
-        noOfViews: noOfViews,
+        duration,
+        genres,
+        releasedYear,
+        rating,
+        noOfViews,
+        fhd,
+        hd,
+        sd,
         uploadDate: new Date(),
       };
 
@@ -60,12 +55,15 @@ export default function AdminPage({ onMovieSubmit }) {
 
       setTitle("");
       setReview("");
-      setCoverPhoto("");
+      setCoverPhoto(null);
       setDuration("");
       setGenres([]);
       setReleasedYear(2024);
       setRating("");
       setNoOfViews(0);
+      setFhd("");
+      setHd("");
+      setSd("");
     } catch (error) {
       console.error("Error adding movie: ", error);
     }
@@ -91,7 +89,7 @@ export default function AdminPage({ onMovieSubmit }) {
         </label>
         <br />
         <label>
-          Cover Photo:
+          Poster:
           <input
             type="file"
             accept="image/*"
@@ -138,6 +136,21 @@ export default function AdminPage({ onMovieSubmit }) {
             onChange={(e) => setRating(e.target.value)}
             required
           />
+        </label>
+        <br />
+        <label>
+          1080p Video Link:
+          <input type="text" value={fhd} onChange={handleFhdLink} />
+        </label>
+        <br />
+        <label>
+          720p Video Link:
+          <input type="text" value={hd} onChange={handleHdLink} />
+        </label>
+        <br />
+        <label>
+          480p Video Link:
+          <input type="text" value={sd} onChange={handleSdLink} />
         </label>
         <br />
         <button type="submit">Submit</button>

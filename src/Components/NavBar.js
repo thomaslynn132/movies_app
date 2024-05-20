@@ -1,6 +1,6 @@
-import { HiMenuAlt2 } from "react-icons/hi";
 import { pi } from "../Assets/index";
 import Search from "./SearchComponent";
+import Menu from "./Menu";
 import { Link } from "react-router-dom";
 function NavBar() {
   return (
@@ -12,7 +12,7 @@ function NavBar() {
       </div>
       <div>
         <Search />
-        <HiMenuAlt2 />
+        <Menu />
       </div>
     </div>
   );

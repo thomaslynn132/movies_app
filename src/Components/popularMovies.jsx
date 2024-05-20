@@ -10,8 +10,8 @@ import {
   mint5,
   mint6,
 } from "../Assets/index";
-
-const PopularMovies = () => {
+import { Link } from "react-router-dom";
+export default function PopularMovies() {
   const images = [mint, mint1, mint2, mint3, mint4, mint5, mint6];
   const totalImages = images.length;
 
@@ -28,55 +28,60 @@ const PopularMovies = () => {
   console.log("Current Index:", currentIndex);
 
   return (
-    <div className="my-5" style={{ marginLeft: "5vw", marginRight: "5vw" }}>
-      <p className="fs-1">Best Deals</p>
-      <div className="d-flex flex-row imgCtn">
-        <div className="dealsArrow" onClick={handleLeftArrowClick}>
-          <FaArrowLeft />
-        </div>
+    <>
+      <div className="my-5" style={{ marginLeft: "5vw", marginRight: "5vw" }}>
+        <h1>Popular Movies</h1>
+        <div className="popularMovies imgCtn">
+          <div className="dealsArrow" onClick={handleLeftArrowClick}>
+            <FaArrowLeft />
+          </div>
 
-        <div className="d-flex flex-row Images">
-          {images.map((image, index) => (
-            <div
-              key={index}
-              className={"d-flex flex-column bestDealShadowAdd"}
-              style={{
-                width: "50vw",
-                transform: `translateX(-${currentIndex * (225 + 10)}px)`,
-                transition: "transform 0.5s ease-in-out",
-              }}>
-              <div className=" rounded bestDeal">
-                <p className="bg-danger bsbb mx-5 fs-4 rounded text-light">
-                  25% Off
+          <div className="popularMovies" style={{ width: "80vw" }}>
+            {images.map((image, index) => (
+              <div
+                key={index}
+                className={"d-flex flex-column bestDealShadowAdd"}
+                style={{
+                  width: "25vw",
+                  transform: `translateX(-${currentIndex * (225 + 10)}px)`,
+                  transition: "transform 0.5s ease-in-out",
+                }}>
+                <div className=" rounded bestDeal">
+                  <img
+                    src={image}
+                    alt={`Mint ${index + 1}`}
+                    className="bestDealImg"
+                    style={{
+                      width: "20vw",
+                      height: "25vw",
+                      padding: "5px",
+                    }}
+                  />
+                </div>
+                <p>
+                  <p className="fs-4">
+                    Refreshing Mint <br />
+                    30,000 MMK
+                  </p>
+                  <p className="text-decoration-line-through ">30,000 MMK</p>
+                  <p className="yellow fw-bold">⭐500 Points</p>
                 </p>
-                <img
-                  src={image}
-                  alt={`Mint ${index + 1}`}
-                  className="bestDealImg"
-                  style={{ width: "30vw", height: "auto" }}
-                />
               </div>
-              <p>
-                <p className="fs-4">
-                  Refreshing Mint <br />
-                  30,000 MMK
-                </p>
-                <p className="text-decoration-line-through ">30,000 MMK</p>
-                <p className="yellow fw-bold">⭐500 Points</p>
-              </p>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        <div className="dealsArrow" onClick={handleRightArrowClick}>
-          <FaArrowRight />
+          <div className="dealsArrow" onClick={handleRightArrowClick}>
+            <FaArrowRight />
+          </div>
+        </div>
+        <div className="text-center">
+          <Link to="/moviesByViews" exact>
+            <button className="rounded-pill viewBtn1" size="lg">
+              View More <IoIosArrowForward />
+            </button>
+          </Link>
         </div>
       </div>
-      <button className="rounded-pill viewBtn1 mb-5">
-        View More <IoIosArrowForward />
-      </button>
-    </div>
+    </>
   );
-};
-
-export default PopularMovies;
+}

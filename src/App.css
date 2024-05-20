@@ -11,6 +11,12 @@ body {
   justify-content: center;
 }
 
+.headMid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+}
 /* Hide the scrollbar in WebKit/Blink browsers */
 body::-webkit-scrollbar {
   display: none;
@@ -20,7 +26,7 @@ body::-webkit-scrollbar {
   display: flex;
   align-items: center;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
 }
 .dealsArrow {
   height: 50px;
@@ -77,13 +83,36 @@ code {
       -4px -4px 8px rgba(255, 255, 255, 0.5);
   }
   h4,
+  h2,
   h5 {
     font-weight: lighter;
     -webkit-text-stroke: 0.2px black;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5),
       -1px -1px 2px rgba(255, 255, 255, 0.5);
   }
-  margin-top: 350px;
+}
+.button {
+  margin: 15px;
+  font-weight: bolder;
+  box-shadow: 5px 0px 25px 0px;
+  padding: 10px 30px;
+  border-radius: 20px;
+  color: white;
+  background-color: rgb(157, 157, 157, 0.5);
+}
+.btn-active {
+  margin: 5px;
+  padding: 5px 10px;
+  transition: 1s;
+  border-radius: 10px;
+  background-color: rgba(22, 255, 154, 0.5);
+}
+.btn-inactive {
+  margin: 5px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  transition: 1s;
+  background-color: rgba(254, 95, 95, 0.3);
 }
 .headerArrow {
   height: 75px;
@@ -261,6 +290,10 @@ code {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+}
+.popularMovies {
+  display: flex;
+  flex-direction: row;
 }
 .slide {
   background-size: cover;

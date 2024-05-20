@@ -2,6 +2,7 @@ import React from "react";
 import { yellow, pink, blue, green } from "../Assets/index";
 import { IoIosArrowForward } from "react-icons/io";
 import { Container, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 const NewRelease = () => {
   const products = [
     {
@@ -43,7 +44,7 @@ const NewRelease = () => {
   return (
     <Container className="my-4">
       <h1 className="text-center mb-4">
-        <span className="text-danger">New</span> <span>Released</span>
+        <span className="text-danger">Recently Added Movies</span>
       </h1>
 
       <Row className="justify-content-center">
@@ -81,9 +82,11 @@ const NewRelease = () => {
       </Row>
 
       <div className="text-center">
-        <button className="rounded-pill viewBtn1" size="lg">
-          View More <IoIosArrowForward />
-        </button>
+        <Link to="/moviesByReleasedDate" exact>
+          <button className="rounded-pill viewBtn1" size="lg">
+            View More <IoIosArrowForward />
+          </button>
+        </Link>
       </div>
     </Container>
   );

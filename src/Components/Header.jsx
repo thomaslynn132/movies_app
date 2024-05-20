@@ -32,7 +32,7 @@ export default function Header() {
         setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
         setFade("fade-in");
       }, 500); // Adjust the delay based on your transition duration
-    }, 87000);
+    }, 7000);
 
     return () => clearInterval(slideshowInterval);
   }, [images.length, setCurrentImageIndex, setFade]);
@@ -65,7 +65,7 @@ export default function Header() {
             backgroundSize: "cover",
           }}>
           <NavBar />
-          <div className="navBar">
+          <div className="headMid">
             <div className="headerArrow">
               <FaArrowLeft onClick={handleLeftArrowClick} />
             </div>
@@ -76,15 +76,15 @@ export default function Header() {
               <FaArrowRight onClick={handleRightArrowClick} />
             </div>
           </div>
+          <button className="button">Watch Now</button>
+
           <div className="headerBtn">
             {[0, 1, 2, 3, 4, 5].map((index) => (
               <button
                 key={index}
                 type="button"
-                className={`btn headerBtn rounded m-1 ${
-                  index === currentImageIndex
-                    ? "btn-outline-dark  bg-success"
-                    : "btn-outline-danger"
+                className={`buttn headerBtn rounded m-1 ${
+                  index === currentImageIndex ? "btn-active" : "btn-inactive"
                 }`}
                 onClick={() => handleButtonClick(index)}></button>
             ))}

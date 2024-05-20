@@ -9,9 +9,17 @@ import MoviesByPostedDate from "../Pages/MoviesByUploadedDate";
 import MoviesByGeneres from "../Pages/MoviesByGeneres";
 import AdminPage from "../Pages/AdminPage";
 import VIP from "../Pages/VIP";
-import { collection, getDocs, firestore } from "../firebase";
 import AdultVideos from "../Pages/AdultVideos";
+import { useState } from "react";
 export const Router = () => {
+  // Fetch movie IDs from Firestore to generate routes dynamically
+
+  const [submittedMovies, setMovies] = useState([]);
+
+  const handleMovieSubmit = (movie) => {
+    setMovies((prevMovies) => [...prevMovies, movie]);
+  };
+
   const routes = [
     {
       component: <Home />,
@@ -22,7 +30,7 @@ export const Router = () => {
       path: "/actionmovies",
     },
     {
-      component: <AdminPage />,
+      component: <AdminPage onMovieSubmit={handleMovieSubmit} />,
       path: "/admin",
     },
     {
@@ -50,26 +58,13 @@ export const Router = () => {
       path: "/vipCheck",
     },
     {
-      component: <ExactMovie />,
+      component: <ExactMovie movies={submittedMovies} />,
       path: "/movies/:id", // Use :id as a placeholder for the movie ID
     },
   ];
-  // Fetch movie IDs from Firestore to generate routes dynamically
-  const fetchMovieIds = async () => {
-    const moviesCollection = collection(firestore, "movies");
-    const querySnapshot = await getDocs(moviesCollection);
-    return querySnapshot.docs.map((doc) => doc.id);
-  };
 
   // Generate routes for exact movie pages dynamically
-  fetchMovieIds().then((movieIds) => {
-    movieIds.forEach((movieId) => {
-      routes.push({
-        component: <exactMovie />,
-        path: `/movies/${movieId}`, // Generate route path dynamically with movie ID
-      });
-    });
-  });
+
   return (
     <Routes>
       {routes.map((route, index) => (

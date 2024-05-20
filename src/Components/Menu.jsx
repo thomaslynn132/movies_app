@@ -1,11 +1,9 @@
 import { HiMenuAlt2 } from "react-icons/hi";
 
-function SortBy() {
+export default function Menu() {
   return (
     <>
       <HiMenuAlt2 />
     </>
   );
 }
-
-export default SortBy;
