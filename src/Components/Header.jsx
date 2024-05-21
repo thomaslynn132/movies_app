@@ -55,7 +55,7 @@ export default function Header() {
     <>
       <div className="slideshow-container d-flex flex-column vh-100">
         <div
-          className={`slide ${fade}`}
+          className={`slide ${fade} header`}
           style={{
             backgroundImage: `url("${images[currentImageIndex]}")`,
             backgroundPosition: "center",

@@ -74,8 +74,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.header {
+  align-items: center;
+  justify-content: space-between;
+  display: block;
+}
 .headerBtn {
-  margin-top: 75px;
+  margin-top: auto;
 }
 .headerText {
   h1 {
