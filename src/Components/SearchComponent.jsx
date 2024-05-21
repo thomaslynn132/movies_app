@@ -29,7 +29,7 @@ function Search() {
 
   return (
     <>
-      <FaSearch onClick={handleSearchClick} />{" "}
+      <FaSearch onClick={handleSearchClick} className="exactMovieButton" />
       {/* Show search input when search icon is clicked */}
       {showSearchInput && (
         <div>

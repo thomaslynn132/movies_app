@@ -23,7 +23,7 @@ export default function Header() {
   ];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [fade, setFade] = useState("fade-in");
-
+  const [hideHeader, setHideHeader] = useState(true);
   useEffect(() => {
     const slideshowInterval = setInterval(() => {
       setFade("fade-out");
@@ -51,7 +51,7 @@ export default function Header() {
     setCurrentImageIndex(index);
   };
 
-  return (
+  return hideHeader ? (
     <>
       <div className="slideshow-container d-flex flex-column vh-100">
         <div
@@ -76,8 +76,15 @@ export default function Header() {
               <FaArrowRight onClick={handleRightArrowClick} />
             </div>
           </div>
-          <button className="button">Watch Now</button>
-
+          <div>
+            <button
+              className="button"
+              onClick={() => {
+                setHideHeader(false);
+              }}>
+              Watch Now
+            </button>
+          </div>
           <div className="headerBtn">
             {[0, 1, 2, 3, 4, 5].map((index) => (
               <button
@@ -92,5 +99,7 @@ export default function Header() {
         </div>
       </div>
     </>
+  ) : (
+    <NavBar />
   );
 }
