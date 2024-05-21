@@ -11,6 +11,7 @@ import AdminPage from "../Pages/AdminPage";
 import VIP from "../Pages/VIP";
 import AdultVideos from "../Pages/AdultVideos";
 import { useState } from "react";
+import SearchResults from "../Pages/SearchedMovies";
 export const Router = () => {
   // Fetch movie IDs from Firestore to generate routes dynamically
 
@@ -61,6 +62,10 @@ export const Router = () => {
       component: <ExactMovie movies={submittedMovies} />,
       path: "/movies/:id", // Use :id as a placeholder for the movie ID
     },
+    {
+      component: <SearchResults />,
+      path: "/search",
+    },
   ];
 
   // Generate routes for exact movie pages dynamically
@@ -70,6 +75,7 @@ export const Router = () => {
       {routes.map((route, index) => (
         <Route path={`${route.path}`} element={route.component} key={index} />
       ))}
+
       <Route path="*" element={Error404} key={Error404} />
     </Routes>
   );

@@ -10,6 +10,8 @@ import {
   getDocs,
   where,
   query,
+  orderBy,
+  limit,
 } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
@@ -43,4 +45,6 @@ export {
   query,
   getDocs,
   getDownloadURL, // Include getDownloadURL in the export list
+  orderBy,
+  limit,
 };

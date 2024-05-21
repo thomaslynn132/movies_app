@@ -81,6 +81,7 @@ code {
 }
 .headerBtn {
   margin-top: auto;
+  position: relative;
 }
 .headerText {
   h1 {

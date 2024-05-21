@@ -1,22 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 import {
-  mint,
-  mint1,
-  mint2,
-  mint3,
-  mint4,
-  mint5,
-  mint6,
-} from "../Assets/index";
-import { Link } from "react-router-dom";
-export default function PopularMovies() {
-  const images = [mint, mint1, mint2, mint3, mint4, mint5, mint6];
-  const totalImages = images.length;
+  firestore,
+  collection,
+  query,
+  orderBy,
+  limit,
+  getDocs,
+} from "../firebase";
 
+import { Link } from "react-router-dom";
+import { BsStarHalf } from "react-icons/bs";
+export default function PopularMovies() {
+  const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  useEffect(() => {
+    const fetchMovies = async () => {
+      try {
+        const q = query(
+          collection(firestore, "movies"),
+          orderBy("views", "desc"),
+          limit(10)
+        );
+        const querySnapshot = await getDocs(q);
+
+        const moviesList = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+
+        setMovies(moviesList);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching movies: ", error);
+        setLoading(false);
+      }
+    };
+
+    fetchMovies();
+  }, []);
+  const totalImages = movies.length;
   const handleLeftArrowClick = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + totalImages) % totalImages);
   };
@@ -26,7 +52,9 @@ export default function PopularMovies() {
   };
 
   console.log("Current Index:", currentIndex);
-
+  if (loading) {
+    return <div>Loading Popular Movies...</div>;
+  }
   return (
     <>
       <div className="my-5" style={{ marginLeft: "5vw", marginRight: "5vw" }}>
@@ -37,36 +65,35 @@ export default function PopularMovies() {
           </div>
 
           <div className="popularMovies" style={{ width: "80vw" }}>
-            {images.map((image, index) => (
-              <div
-                key={index}
-                className={"d-flex flex-column bestDealShadowAdd"}
-                style={{
-                  width: "25vw",
-                  transform: `translateX(-${currentIndex * (225 + 10)}px)`,
-                  transition: "transform 0.5s ease-in-out",
-                }}>
-                <div className=" rounded bestDeal">
-                  <img
-                    src={image}
-                    alt={`Mint ${index + 1}`}
-                    className="bestDealImg"
-                    style={{
-                      width: "20vw",
-                      height: "25vw",
-                      padding: "5px",
-                    }}
-                  />
-                </div>
-                <p>
-                  <p className="fs-4">
-                    Refreshing Mint <br />
-                    30,000 MMK
+            {movies.map((movie, index) => (
+              <Link to="/movies/:id">
+                <div
+                  key={index}
+                  className={"d-flex flex-column bestDealShadowAdd"}
+                  style={{
+                    width: "25vw",
+                    transform: `translateX(-${currentIndex * (225 + 10)}px)`,
+                    transition: "transform 0.5s ease-in-out",
+                  }}>
+                  <div className=" rounded bestDeal">
+                    <div
+                      className="moviePoster"
+                      style={{
+                        backgroundImage: `${movie.coverPhoto}`,
+                        height: "200px",
+                        width: "150px",
+                        alignItems: "flex-end",
+                        textAlign: "end",
+                      }}>
+                      <BsStarHalf /> {movie.rating}
+                    </div>
+                  </div>
+                  <p>
+                    <h3>{movies.title}</h3>
+                    <p>{movie.releasedYear}</p>
                   </p>
-                  <p className="text-decoration-line-through ">30,000 MMK</p>
-                  <p className="yellow fw-bold">⭐500 Points</p>
-                </p>
-              </div>
+                </div>{" "}
+              </Link>
             ))}
           </div>
 
