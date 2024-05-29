@@ -3,6 +3,7 @@ import { firestore, doc, getDoc, updateDoc } from "../firebase"; // Ensure fires
 import { useParams } from "react-router-dom";
 import VideoJS from "../Components/VideoPlayer"; // Ensure you have this component or package installed
 import NavBar from "../Components/NavBar";
+import { fetchMetadata } from "./metadataService";
 
 import { Helmet } from "react-helmet"; // Import Helmet
 export default function ExactMovie() {
@@ -10,7 +11,7 @@ export default function ExactMovie() {
   const [additionalData, setAdditionalData] = useState(null);
   const [quality, setQuality] = useState("720p");
   const playerRef = useRef(null);
-
+  const [coverPhotoMetadata, setCoverPhotoMetadata] = useState(null);
   const handlePlayerReady = (player) => {
     playerRef.current = player;
 
@@ -33,6 +34,10 @@ export default function ExactMovie() {
           const movieData = movieDocSnapshot.data();
           setAdditionalData(movieData);
           // Increment the view count
+          if (movieData.coverPhoto) {
+            const metadata = await fetchMetadata(movieData.coverPhoto);
+            setCoverPhotoMetadata(metadata);
+          }
           await updateDoc(movieDocRef, {
             views: (movieData.views || 0) + 1,
           });
@@ -102,6 +107,13 @@ export default function ExactMovie() {
             </Helmet>
             <NavBar />
             <div className="poster d-flex flex-row">
+              {coverPhotoMetadata && (
+                <div>
+                  <img src={coverPhotoMetadata.imageUrl} alt="Cover Preview" />
+                  <p>{coverPhotoMetadata.title}</p>
+                  <p>{coverPhotoMetadata.description}</p>
+                </div>
+              )}
               <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
               <div>
                 <label>Resolution:</label>
