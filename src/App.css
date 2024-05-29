@@ -79,6 +79,10 @@ code {
   justify-content: space-between;
   display: block;
 }
+.activeButton {
+  background-color: rgba(0, 255, 255, 0.546);
+  box-shadow: 5px 5px 0px 0px;
+}
 .headerBtn {
   margin-top: auto;
   position: relative;

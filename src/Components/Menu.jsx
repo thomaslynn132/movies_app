@@ -15,8 +15,8 @@ export default function Menu() {
           <Link to="/">
             <button>Movies</button>
           </Link>
-          <Link to="/avs">
-            <button>AVs</button>
+          <Link to="/animes">
+            <button>Animes</button>
           </Link>
         </div>
       )}

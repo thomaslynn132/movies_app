@@ -64,6 +64,7 @@ export default function AdminPage({ onMovieSubmit }) {
       setFhd("");
       setHd("");
       setSd("");
+      alert("Movie Uploaded");
     } catch (error) {
       console.error("Error adding movie: ", error);
     }

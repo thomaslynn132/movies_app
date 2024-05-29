@@ -1,17 +1,19 @@
 import Error404 from "../Pages/Error404";
 import { Route, Routes } from "react-router-dom";
 import Home from "../Pages/Home";
-import ActionMovies from "../Pages/ActionMovies";
 import ContactUs from "../Pages/ContactUs";
 import ExactMovie from "../Pages/ExactMovie";
 import MoviesByViews from "../Pages/MoviesByViews";
-import MoviesByPostedDate from "../Pages/MoviesByUploadedDate";
-import MoviesByGeneres from "../Pages/MoviesByGeneres";
 import AdminPage from "../Pages/AdminPage";
 import VIP from "../Pages/VIP";
-import AdultVideos from "../Pages/AdultVideos";
 import { useState } from "react";
 import SearchResults from "../Pages/SearchedMovies";
+import PrivateRoute from "../Auth/PrivateRoute";
+import LogIn from "../Auth/LogIn";
+import { AuthProvider } from "../Auth/AuthContext";
+import AnimePage from "../Pages/Animes/AnimePage";
+import MoviewByUploadedDate from "../Pages/MoviesByUploadedDate";
+import MoviesByUploadedDate from "../Pages/MoviesByUploadedDate";
 export const Router = () => {
   // Fetch movie IDs from Firestore to generate routes dynamically
 
@@ -26,34 +28,30 @@ export const Router = () => {
       component: <Home />,
       path: "/",
     },
+    { component: <AnimePage />, path: "/animes" },
+
     {
-      component: <ActionMovies />,
-      path: "/actionmovies",
-    },
-    {
-      component: <AdminPage onMovieSubmit={handleMovieSubmit} />,
+      component: (
+        <PrivateRoute>
+          <AdminPage onMovieSubmit={handleMovieSubmit} />
+        </PrivateRoute>
+      ),
       path: "/admin",
     },
-    {
-      component: <AdultVideos />,
-      path: "/avs",
-    },
+    { component: <LogIn />, path: "/login" },
     {
       component: <ContactUs />,
       path: "/contactUs",
     },
     {
-      component: <MoviesByGeneres />,
-      path: "/MovieByGeneres",
-    },
-    {
-      component: <MoviesByPostedDate />,
+      component: <MoviewByUploadedDate movies={submittedMovies} />,
       path: "/moviesByPostedDate",
     },
     {
-      component: <MoviesByViews />,
+      component: <MoviesByViews movies={submittedMovies} />,
       path: "/moviesByViews",
     },
+
     {
       component: <VIP />,
       path: "/vipCheck",
@@ -62,6 +60,7 @@ export const Router = () => {
       component: <ExactMovie movies={submittedMovies} />,
       path: "/movies/:id", // Use :id as a placeholder for the movie ID
     },
+
     {
       component: <SearchResults />,
       path: "/search",
@@ -71,12 +70,27 @@ export const Router = () => {
   // Generate routes for exact movie pages dynamically
 
   return (
-    <Routes>
-      {routes.map((route, index) => (
-        <Route path={`${route.path}`} element={route.component} key={index} />
-      ))}
+    <AuthProvider>
+      <Routes>
+        {routes.map((route, index) => (
+          <Route
+            path={`${route.path}`}
+            element={route.component}
+            key={index}
+            exact
+          />
+        ))}
+        <Route
+          path="/moviesByPostedDate/:page"
+          component={<MoviesByUploadedDate movies={submittedMovies} />}
+        />
+        <Route
+          path="/moviesByViews/:page"
+          component={<MoviesByViews movies={submittedMovies} />}
+        />
 
-      <Route path="*" element={Error404} key={Error404} />
-    </Routes>
+        <Route path="*" element={<Error404 />} key={Error404} />
+      </Routes>
+    </AuthProvider>
   );
 };

@@ -10,11 +10,13 @@ import {
   getDocs,
   where,
   query,
+  startAfter,
   orderBy,
   limit,
+  updateDoc,
 } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-
+import { getAuth } from "firebase/auth";
 const firebaseConfig = {
   apiKey: "AIzaSyAbjfoSIHsq9dx8B9NrBEncZtjnQZPUznc",
   authDomain: "shalkyi-movie.firebaseapp.com",
@@ -29,10 +31,11 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const firestore = getFirestore(app);
 const storage = getStorage();
-
+const auth = getAuth();
 export {
   app,
   analytics,
+  auth,
   doc,
   getDoc,
   firestore,
@@ -40,11 +43,13 @@ export {
   addDoc,
   storage,
   ref,
+  updateDoc,
   uploadBytes,
   where,
   query,
   getDocs,
   getDownloadURL, // Include getDownloadURL in the export list
   orderBy,
+  startAfter,
   limit,
 };

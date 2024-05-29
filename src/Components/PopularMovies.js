@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { Suspense, useState, useEffect } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 import {
@@ -9,9 +9,10 @@ import {
   limit,
   getDocs,
 } from "../firebase";
-
 import { Link } from "react-router-dom";
-import { BsStarHalf } from "react-icons/bs";
+import { BsEye, BsStarHalf } from "react-icons/bs";
+import SuspensePhoto from "./SuspensePhoto";
+
 export default function PopularMovies() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -42,7 +43,9 @@ export default function PopularMovies() {
 
     fetchMovies();
   }, []);
+
   const totalImages = movies.length;
+
   const handleLeftArrowClick = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + totalImages) % totalImages);
   };
@@ -55,6 +58,7 @@ export default function PopularMovies() {
   if (loading) {
     return <div>Loading Popular Movies...</div>;
   }
+
   return (
     <>
       <div className="my-5" style={{ marginLeft: "5vw", marginRight: "5vw" }}>
@@ -64,35 +68,66 @@ export default function PopularMovies() {
             <FaArrowLeft />
           </div>
 
-          <div className="popularMovies" style={{ width: "80vw" }}>
+          <div
+            className="popularMovies"
+            style={{
+              width: "80vw",
+              alignItems: "center",
+              justifyContent: "center",
+            }}>
             {movies.map((movie, index) => (
-              <Link to="/movies/:id">
+              <Link key={index} to={`/movies/${movie.id}`}>
                 <div
-                  key={index}
                   className={"d-flex flex-column bestDealShadowAdd"}
                   style={{
-                    width: "25vw",
                     transform: `translateX(-${currentIndex * (225 + 10)}px)`,
                     transition: "transform 0.5s ease-in-out",
                   }}>
-                  <div className=" rounded bestDeal">
-                    <div
-                      className="moviePoster"
-                      style={{
-                        backgroundImage: `${movie.coverPhoto}`,
-                        height: "200px",
-                        width: "150px",
-                        alignItems: "flex-end",
-                        textAlign: "end",
-                      }}>
-                      <BsStarHalf /> {movie.rating}
-                    </div>
+                  <div className="rounded bestDeal">
+                    <Suspense fallback={<SuspensePhoto />}>
+                      {" "}
+                      <div
+                        className="moviePoster"
+                        style={{
+                          backgroundImage: `url(${movie.coverPhoto})`,
+                          height: "33vw",
+                          width: "20vw",
+                          alignItems: "flex-end",
+                          textAlign: "end",
+                          backgroundPosition: "top",
+                          backgroundSize: "cover",
+                          border: "2px solid",
+                          padding: "3px",
+                          borderRadius: "7%",
+                          textDecoration: "none",
+                        }}>
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            alignItems: "flex-end",
+                          }}>
+                          <span>
+                            <BsEye
+                              className="d-flex flex-row"
+                              style={{ alignItems: "center" }}
+                            />
+                            {movie.views}
+                          </span>
+                          <span
+                            className="d-flex flex-row "
+                            style={{ alignItems: "center" }}>
+                            <BsStarHalf /> {movie.rating}
+                          </span>
+                        </div>
+                      </div>
+                    </Suspense>
                   </div>
-                  <p>
-                    <h3>{movies.title}</h3>
+                  <div>
+                    <h3>{movie.title}</h3>
                     <p>{movie.releasedYear}</p>
-                  </p>
-                </div>{" "}
+                  </div>
+                </div>
               </Link>
             ))}
           </div>

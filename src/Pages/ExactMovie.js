@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
-import { firestore } from "../firebase"; // Ensure firestore is imported from your Firebase configuration
-import { doc, getDoc } from "firebase/firestore"; // Import these from 'firebase/firestore'
+import { firestore, doc, getDoc, updateDoc } from "../firebase"; // Ensure firestore is imported from your Firebase configuration
 import { useParams } from "react-router-dom";
 import VideoJS from "../Components/VideoPlayer"; // Ensure you have this component or package installed
 import NavBar from "../Components/NavBar";
 
+import { Helmet } from "react-helmet"; // Import Helmet
 export default function ExactMovie() {
   const { id } = useParams();
   const [additionalData, setAdditionalData] = useState(null);
@@ -25,13 +25,17 @@ export default function ExactMovie() {
   };
 
   useEffect(() => {
-    const fetchAdditionalData = async () => {
+    const fetchAndIncrementViews = async () => {
       try {
         const movieDocRef = doc(firestore, "movies", id); // Ensure 'movies' collection name matches your Firestore setup
         const movieDocSnapshot = await getDoc(movieDocRef);
         if (movieDocSnapshot.exists()) {
           const movieData = movieDocSnapshot.data();
           setAdditionalData(movieData);
+          // Increment the view count
+          await updateDoc(movieDocRef, {
+            views: (movieData.views || 0) + 1,
+          });
           // Set default video source based on the initial quality
           if (playerRef.current) {
             playerRef.current.src({ type: "video/mp4", src: movieData.hd }); // Default to 'hd'
@@ -44,14 +48,14 @@ export default function ExactMovie() {
       }
     };
 
-    fetchAdditionalData();
+    fetchAndIncrementViews();
   }, [id]);
 
   const changeQuality = (quality) => {
     if (!additionalData) return;
 
     const sources = {
-      "360p": additionalData.sd,
+      "480p": additionalData.sd,
       "720p": additionalData.hd,
       "1080p": additionalData.fhd,
     };
@@ -93,23 +97,32 @@ export default function ExactMovie() {
       {additionalData ? (
         <>
           <div className="heading d-flex flex-col">
+            <Helmet>
+              <title>{additionalData.title}</title>
+            </Helmet>
             <NavBar />
             <div className="poster d-flex flex-row">
               <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
               <div>
                 <label>Resolution:</label>
                 <button
-                  className="exactMovieButton"
+                  className={`exactMovieButton ${
+                    quality === "360p" ? "activeButton" : ""
+                  }`}
                   onClick={() => changeQuality("360p")}>
                   360p
                 </button>
                 <button
-                  className="exactMovieButton"
+                  className={`exactMovieButton ${
+                    quality === "720p" ? "activeButton" : ""
+                  }`}
                   onClick={() => changeQuality("720p")}>
                   720p
                 </button>
                 <button
-                  className="exactMovieButton"
+                  className={`exactMovieButton ${
+                    quality === "1080p" ? "activeButton" : ""
+                  }`}
                   onClick={() => changeQuality("1080p")}>
                   1080p
                 </button>
