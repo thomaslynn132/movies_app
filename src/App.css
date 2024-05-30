@@ -1,5 +1,9 @@
 /* src/App.css */
-
+* {
+  text-decoration: none;
+  color: #000000;
+  font-family: "Arial";
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -184,6 +188,9 @@ h2 {
 .bestDealShadowAdd {
   box-sizing: border-box;
 }
+.searchBar {
+  font-weight: bolder;
+}
 .bestDealShadowAdd:hover {
   box-shadow: gray;
 }
@@ -192,7 +199,7 @@ h2 {
   background-color: rgb(142, 142, 142, 0.5);
 }
 .bestDeal:hover {
-  background-color: #b1b0b0;
+  background-color: #c1c1c16d;
   transition: 1.5s;
   .fs-4 {
     transition: 1s;
@@ -304,8 +311,16 @@ h2 {
   box-sizing: content-box;
 }
 
+.Review {
+  font-size: medium;
+  color: #e6b140;
+  font-family: s Times, serif;
+  font-weight: bold;
+  text-shadow: #121212;
+  -webkit-text-stroke: 0.7px rgb(0, 0, 0);
+}
 .product-container:hover {
-  background-color: rgb(142, 142, 142);
+  background-color: rgba(198, 198, 198, 0.5);
   transition: 1s;
 }
 

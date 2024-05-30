@@ -70,7 +70,7 @@ export default function MoviesByViews() {
                       }}>
                       <div className="nRImgDiv">
                         <Suspense fallback={<SuspensePhoto />}>
-                          {" "}
+                      
                           <div
                             className="moviePoster"
                             style={{

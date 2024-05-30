@@ -10,7 +10,14 @@ function NavBar() {
           <img src={pi} alt="Logo" height={50} />
         </Link>
       </div>
-      <div style={{ display: "flex", flexDirection: "row" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          position: "sticky",
+          marginRight: "10px",
+          marginLeft: "auto",
+        }}>
         <Search />
         <Menu />
       </div>

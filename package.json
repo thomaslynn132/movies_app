@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@gsap/react": "^2.1.1",
     "@nodelib/fs.scandir": "^3.0.0",
     "@nodelib/fs.stat": "^3.0.0",
     "@testing-library/jest-dom": "^5.17.0",
@@ -12,6 +13,7 @@
     "@videojs/http-streaming": "^3.12.1",
     "bootstrap": "^5.3.3",
     "firebase": "^10.11.1",
+    "gsap": "^3.12.5",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.2",

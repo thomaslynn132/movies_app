@@ -1,4 +1,3 @@
-// Search.js
 import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
@@ -14,7 +13,8 @@ function Search() {
 
   const handleSearch = () => {
     if (searchQuery.trim()) {
-      navigate("/search"); // Navigate to search results page with query
+      // Include the search query as a query parameter in the URL
+      navigate(`/search?query=${encodeURIComponent(searchQuery.trim())}`);
       setShowSearchInput(false); // Hide search input after search
       setSearchQuery(""); // Clear search query
     }
@@ -28,10 +28,14 @@ function Search() {
           <input
             type="text"
             value={searchQuery}
+            className="searchBar"
+            style={{ padding: "7px", borderRadius: "12px" }}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search for movies..."
           />
-          <button onClick={handleSearch}>Search</button>
+          <button onClick={handleSearch} className="button">
+            <FaSearch />
+          </button>
         </div>
       )}
     </>

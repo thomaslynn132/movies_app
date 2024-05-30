@@ -97,9 +97,14 @@ export default function MoviesByViews() {
         {loading ? (
           <div>Loading Popular Movies...</div>
         ) : (
-          <div className="popularMovies" style={{ width: "80vw" }}>
+          <div
+            className="popularMovies"
+            style={{ width: "90vw", display: "inline" }}>
             {movies.map((movie) => (
-              <Link key={movie.id} to={`/movies/${movie.id}`}>
+              <Link
+                key={movie.id}
+                to={`/movies/${movie.id}`}
+                style={{ display: "inline-block" }}>
                 <div
                   className="bestDealShadowAdd"
                   style={{

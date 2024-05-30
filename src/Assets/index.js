@@ -31,7 +31,12 @@ import kbz from "./kbz.png";
 import wave from "./wave.png";
 import qr from "./qr.png";
 import pi from "./pi.png";
+import background from "./background.png";
+import background2 from "./background.jpg";
+
 export {
+  background2,
+  background,
   pi,
   qr,
   kbz,
