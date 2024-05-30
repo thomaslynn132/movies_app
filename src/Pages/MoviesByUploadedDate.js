@@ -164,10 +164,16 @@ export default function MoviesByUploadedDate() {
           </div>
         )}
         <div className="pagination">
-          <button onClick={handlePrevious} disabled={parseInt(page, 10) <= 1}>
+          <button
+            onClick={handlePrevious}
+            className="button"
+            disabled={parseInt(page, 10) <= 1}>
             Previous
           </button>
-          <button onClick={handleNext} disabled={movies.length < PAGE_SIZE}>
+          <button
+            className="button"
+            onClick={handleNext}
+            disabled={movies.length < PAGE_SIZE}>
             Next
           </button>
         </div>

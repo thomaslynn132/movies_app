@@ -109,7 +109,7 @@ export default function MoviesByViews() {
                   className="bestDealShadowAdd"
                   style={{
                     width: "20vw",
-                    display: "grid",
+                    display: "inline-block",
                     margin: "7px",
                     textDecoration: "none",
                     color: "black",
@@ -164,10 +164,16 @@ export default function MoviesByViews() {
           </div>
         )}
         <div className="pagination">
-          <button onClick={handlePrevious} disabled={parseInt(page, 10) <= 1}>
+          <button
+            onClick={handlePrevious}
+            className="button"
+            disabled={parseInt(page, 10) <= 1}>
             Previous
           </button>
-          <button onClick={handleNext} disabled={movies.length < PAGE_SIZE}>
+          <button
+            onClick={handleNext}
+            className="button"
+            disabled={movies.length < PAGE_SIZE}>
             Next
           </button>
         </div>
