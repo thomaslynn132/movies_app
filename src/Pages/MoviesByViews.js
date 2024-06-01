@@ -104,13 +104,13 @@ export default function MoviesByViews() {
               <Link
                 key={movie.id}
                 to={`/movies/${movie.id}`}
-                style={{ display: "inline-block" }}>
+                style={{ display: "inline-block", margin: "15px" }}>
                 <div
                   className="bestDealShadowAdd"
                   style={{
                     width: "20vw",
                     display: "inline-block",
-                    margin: "7px",
+                    margin: "15px",
                     textDecoration: "none",
                     color: "black",
                     textAlign: "start",

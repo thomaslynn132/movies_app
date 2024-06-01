@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { firestore, doc, getDoc, updateDoc } from "../firebase"; // Ensure firestore is imported from your Firebase configuration
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import VideoJS from "../Components/VideoPlayer"; // Ensure you have this component or package installed
 import NavBar from "../Components/NavBar";
 import { Helmet } from "react-helmet"; // Import Helmet
@@ -24,7 +24,7 @@ export default function ExactMovie() {
   // ✅ wrapped in contextSafe() - animation will be cleaned up correctly
   // selector text is scoped properly to the container.
   const onClickGood = contextSafe(() => {
-    gsap.to(".good", { rotation: 180 });
+    gsap.to(".good", { rotation: 360 });
   });
 
   // Define fetchMetadata function
@@ -174,39 +174,53 @@ export default function ExactMovie() {
                 <div>
                   <label>Resolution:</label>
                   <button
-                    className={`exactMovieButton ${
+                    className={`good exactMovieButton ${
                       quality === "360p" ? "activeButton" : ""
                     }`}
                     onClick={() => changeQuality("360p")}>
                     360p
                   </button>
                   <button
-                    className={`exactMovieButton ${
+                    className={`good exactMovieButton ${
                       quality === "720p" ? "activeButton" : ""
                     }`}
                     onClick={() => changeQuality("720p")}>
                     720p
                   </button>
                   <button
-                    className={`exactMovieButton ${
+                    className={`good exactMovieButton ${
                       quality === "1080p" ? "activeButton" : ""
                     }`}
                     onClick={() => changeQuality("1080p")}>
                     1080p
                   </button>
                   <br />
-                  <p ref={qualityRef}>Now playing as {quality}.</p>
+                  <p ref={qualityRef} style={{ fontFamily: "fantasy" }}>
+                    Now playing as {quality}.
+                  </p>
                 </div>
                 <div>
                   <label>Download:</label>
                   <a href={additionalData.sd}>
-                    <button className="exactMovieButton">360p</button>
+                    <button
+                      onClick={onClickGood}
+                      className="good exactMovieButton">
+                      360p
+                    </button>
                   </a>
                   <a href={additionalData.hd}>
-                    <button className="exactMovieButton">720p</button>
+                    <button
+                      onClick={onClickGood}
+                      className="good exactMovieButton">
+                      720p
+                    </button>
                   </a>
                   <a href={additionalData.fhd}>
-                    <button className="exactMovieButton">1080p</button>
+                    <button
+                      onClick={onClickGood}
+                      className="good exactMovieButton">
+                      1080p
+                    </button>
                   </a>
                 </div>
                 <h2 ref={titleRef} className="movieTitle fs-1">
@@ -217,9 +231,15 @@ export default function ExactMovie() {
                   IMDb Rating: {additionalData.rating} <br />
                   Genres:{" "}
                   {additionalData.genres.map((genre, index) => (
-                    <button key={index} type="button" className="btn btn-info">
-                      {genre}
-                    </button>
+                    <Link to={`/moviesByGenere/${genre}`}>
+                      <button
+                        key={index}
+                        type="button"
+                        style={{ height: "40px", width: "auto" }}
+                        className="button btn btn-info">
+                        {genre}
+                      </button>
+                    </Link>
                   ))}
                 </p>
                 <p ref={detailsRef} className="Review">
