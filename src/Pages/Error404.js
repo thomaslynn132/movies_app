@@ -8,7 +8,7 @@ const Error404 = () => {
       <NavBar />
       <h1>Error 404 - Page Not Found</h1>
       <p>The page you are looking for might not exist or has been moved.</p>
-      <Link href="./">
+      <Link href="/">
         <button className="button">Go to Home Page</button>
       </Link>
     </div>

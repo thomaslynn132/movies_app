@@ -231,7 +231,7 @@ export default function ExactMovie() {
                   IMDb Rating: {additionalData.rating} <br />
                   Genres:{" "}
                   {additionalData.genres.map((genre, index) => (
-                    <Link to={`/moviesByGenere/${genre}`}>
+                    <Link to={`./genres/${genre}`} key={genre}>
                       <button
                         key={index}
                         type="button"

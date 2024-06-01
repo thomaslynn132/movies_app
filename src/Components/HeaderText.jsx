@@ -33,7 +33,7 @@ const HeaderText = () => {
     }, 2000);
     setTimeout(() => {
       scrambleText(textRef3.current, "Download Best Quality Movies", 5);
-    }, 5000);
+    }, 4000);
   }); // Empty dependency array to run only once
   useEffect(() => {
     scrambleText(textRef4.current, "Anytime Anywhere", 10);
