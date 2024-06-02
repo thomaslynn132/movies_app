@@ -48,9 +48,9 @@ const SearchResults = () => {
   return (
     <div>
       <NavBar />
-      <h2>Search Results</h2>
+      <h2 className="reveal">Search Results</h2>
       <div
-        className="popularMovies"
+        className="popularMovies reveal"
         style={{ width: "90vw", display: "inline" }}>
         {movies.length > 0 ? (
           movies.map((movie) => (
@@ -59,7 +59,7 @@ const SearchResults = () => {
               to={`/movies/${movie.id}`}
               style={{ display: "inline-block" }}>
               <div
-                className="bestDealShadowAdd"
+                className="bestDealShadowAdd reveal"
                 style={{
                   width: "20vw",
                   display: "grid",
@@ -68,10 +68,10 @@ const SearchResults = () => {
                   color: "black",
                   textAlign: "start",
                 }}>
-                <div className="rounded bestDeal">
+                <div className="rounded bestDeal reveal">
                   <Suspense fallback={<SuspensePhoto />}>
                     <div
-                      className="moviePoster"
+                      className="moviePoster reveal"
                       style={{
                         backgroundImage: `url(${movie.coverPhoto})`,
                         height: "33vw",
@@ -86,20 +86,18 @@ const SearchResults = () => {
                         textDecoration: "none",
                       }}>
                       <div
+                        className="reveal"
                         style={{
                           display: "flex",
                           justifyContent: "space-between",
                           alignItems: "flex-end",
                         }}>
                         <span>
-                          <BsEye
-                            className="d-flex flex-row"
-                            style={{ alignItems: "center" }}
-                          />
+                          <BsEye style={{ alignItems: "center" }} />
                           {movie.views}
                         </span>
                         <span
-                          className="d-flex flex-row "
+                          className="reveal d-flex flex-row "
                           style={{ alignItems: "center" }}>
                           <BsStarHalf /> {movie.rating}
                         </span>
@@ -108,14 +106,14 @@ const SearchResults = () => {
                   </Suspense>
                 </div>
                 <div>
-                  <h3>{movie.title}</h3>
-                  <p>{movie.releasedYear}</p>
+                  <h3 className="reveal">{movie.title}</h3>
+                  <p className="reveal">{movie.releasedYear}</p>
                 </div>
               </div>
             </Link>
           ))
         ) : (
-          <p>No movies found for "{searchQuery}"</p>
+          <p className="reveal">No movies found for "{searchQuery}"</p>
         )}
       </div>
     </div>

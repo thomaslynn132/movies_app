@@ -62,8 +62,8 @@ export default function PopularMovies() {
   return (
     <>
       <div className="my-5" style={{ marginLeft: "5vw", marginRight: "5vw" }}>
-        <h1>Popular Movies</h1>
-        <div className="popularMovies imgCtn">
+        <h1 className="reveal">Popular Movies</h1>
+        <div className="popularMovies imgCtn reveal">
           <div className="dealsArrow" onClick={handleLeftArrowClick}>
             <FaArrowLeft />
           </div>
@@ -83,11 +83,11 @@ export default function PopularMovies() {
                     transform: `translateX(-${currentIndex * (225 + 10)}px)`,
                     transition: "transform 0.5s ease-in-out",
                   }}>
-                  <div className="rounded bestDeal">
+                  <div className="rounded reveal bestDeal">
                     <Suspense fallback={<SuspensePhoto />}>
                       {" "}
                       <div
-                        className="moviePoster"
+                        className="moviePoster reveal"
                         style={{
                           backgroundImage: `url(${movie.coverPhoto})`,
                           height: "33vw",
@@ -102,6 +102,7 @@ export default function PopularMovies() {
                           textDecoration: "none",
                         }}>
                         <div
+                          className="reveal"
                           style={{
                             display: "flex",
                             justifyContent: "space-between",
@@ -109,13 +110,13 @@ export default function PopularMovies() {
                           }}>
                           <span>
                             <BsEye
-                              className="d-flex flex-row"
+                              className="d-flex flex-row reveal"
                               style={{ alignItems: "center" }}
                             />
                             {movie.views}
                           </span>
                           <span
-                            className="d-flex flex-row "
+                            className="d-flex flex-row reveal"
                             style={{ alignItems: "center" }}>
                             <BsStarHalf /> {movie.rating}
                           </span>
@@ -124,8 +125,8 @@ export default function PopularMovies() {
                     </Suspense>
                   </div>
                   <div>
-                    <h3>{movie.title}</h3>
-                    <p>{movie.releasedYear}</p>
+                    <h3 className="reveal">{movie.title}</h3>
+                    <p className="reveal">{movie.releasedYear}</p>
                   </div>
                 </div>
               </Link>

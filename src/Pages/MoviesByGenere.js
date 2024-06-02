@@ -33,13 +33,13 @@ function MoviesByGenre(genre) {
 
   return (
     <div>
-      <h1>Movies in Genre: {genre}</h1>
+      <h1 className="reveal">Movies in Genre: {genre}</h1>
       <ul>
         {movies.map((movie) => (
           <li key={movie.id}>
-            <h2>{movie.title}</h2>
-            <p>{movie.description}</p>
-            <p>Genres: {movie.genres.join(", ")}</p>
+            <h2 className="reveal">{movie.title}</h2>
+            <p className="reveal">{movie.description}</p>
+            <p className="reveal">Genres: {movie.genres.join(", ")}</p>
           </li>
         ))}
       </ul>

@@ -4,10 +4,10 @@ import Menu from "./Menu";
 import { Link } from "react-router-dom";
 function NavBar() {
   return (
-    <div className="navBar">
+    <div className="navBar reveal">
       <div>
         <Link to="/">
-          <img src={pi} alt="Logo" height={50} />
+          <img className="reveal" src={pi} alt="Logo" height={50} />
         </Link>
       </div>
       <div

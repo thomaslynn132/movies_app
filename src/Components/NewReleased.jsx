@@ -50,17 +50,17 @@ export default function MoviesByViews() {
     <>
       <Container className="my-4">
         <h1 className="text-center mb-4">
-          <span className="text-danger">Recently Added Movies</span>
+          <span className="text-danger reveal">Recently Added Movies</span>
         </h1>
 
-        <Row className="justify-content-center">
+        <Row className="justify-content-center reveal">
           <Col lg={12}>
             <Row>
               {movies.map((movie, index) => (
                 <Link to={`/movies/${movie.id}`} exact>
-                  <Col key={index} md={6} className="mb-4 devImg bsbb">
+                  <Col key={index} md={6} className="mb-4 reveal devImg bsbb">
                     <div
-                      className="product-container p-3 rounded"
+                      className="product-container p-3 rounded reveal"
                       style={{
                         boxSizing: "border-box",
                         display: "flex",
@@ -68,11 +68,10 @@ export default function MoviesByViews() {
                         justifyContent: "center",
                         alignItems: "center",
                       }}>
-                      <div className="nRImgDiv">
+                      <div className="nRImgDiv reveal">
                         <Suspense fallback={<SuspensePhoto />}>
-                      
                           <div
-                            className="moviePoster"
+                            className="moviePoster reveal"
                             style={{
                               backgroundImage: `url(${movie.coverPhoto})`,
                               height: "33vw",
@@ -94,13 +93,13 @@ export default function MoviesByViews() {
                               }}>
                               <span>
                                 <BsEye
-                                  className="d-flex flex-row"
+                                  className="d-flex flex-row reveal"
                                   style={{ alignItems: "center" }}
                                 />
                                 {movie.views}
                               </span>
                               <span
-                                className="d-flex flex-row "
+                                className="d-flex flex-row reveal"
                                 style={{ alignItems: "center" }}>
                                 <BsStarHalf /> {movie.rating}
                               </span>
@@ -110,7 +109,7 @@ export default function MoviesByViews() {
                       </div>
 
                       <div className="text-dark">
-                        <p className="font-weight-bold">
+                        <p className="font-weight-bold reveal">
                           {movie.title} <br />
                           {movie.rating}
                           <br />
@@ -125,7 +124,7 @@ export default function MoviesByViews() {
           </Col>
         </Row>
 
-        <div className="text-center">
+        <div className="text-center reveal">
           <Link to="/moviesByPostedDate" exact>
             <button className="rounded-pill viewBtn1" size="lg">
               View More <IoIosArrowForward />

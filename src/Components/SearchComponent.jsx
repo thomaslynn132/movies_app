@@ -22,18 +22,21 @@ function Search() {
 
   return (
     <>
-      <FaSearch onClick={handleSearchClick} className="exactMovieButton" />
+      <FaSearch
+        onClick={handleSearchClick}
+        className="exactMovieButton reveal"
+      />
       {showSearchInput && (
         <div>
           <input
             type="text"
             value={searchQuery}
-            className="searchBar"
+            className="searchBar reveal"
             style={{ padding: "7px", borderRadius: "12px" }}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search for movies..."
           />
-          <button onClick={handleSearch} className="button">
+          <button onClick={handleSearch} className="button reveal">
             <FaSearch />
           </button>
         </div>

@@ -13,10 +13,10 @@ export default function Menu() {
       {showMenu && (
         <div>
           <Link to="/">
-            <button className="button">Movies</button>
+            <button className="reveal button">Movies</button>
           </Link>
           <Link to="/animes">
-            <button className="button">Animes</button>
+            <button className="reveal button">Animes</button>
           </Link>
         </div>
       )}

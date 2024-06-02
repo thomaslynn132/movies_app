@@ -93,12 +93,12 @@ export default function MoviesByUploadedDate() {
       </Helmet>
       <NavBar />
       <div className="my-5" style={{ marginLeft: "5vw", marginRight: "5vw" }}>
-        <h1>Recently Posted Movies</h1>
+        <h1 className="reveal">Recently Posted Movies</h1>
         {loading ? (
           <div>Loading Recently Posted Movies...</div>
         ) : (
           <div
-            className="popularMovies"
+            className="reveal popularMovies"
             style={{ width: "90vw", display: "inline" }}>
             {movies.map((movie) => (
               <Link
@@ -106,7 +106,7 @@ export default function MoviesByUploadedDate() {
                 to={`/movies/${movie.id}`}
                 style={{ display: "inline-block" }}>
                 <div
-                  className="bestDealShadowAdd"
+                  className="reveal bestDealShadowAdd"
                   style={{
                     width: "20vw",
                     display: "grid",
@@ -115,10 +115,10 @@ export default function MoviesByUploadedDate() {
                     color: "black",
                     textAlign: "start",
                   }}>
-                  <div className="rounded bestDeal">
+                  <div className="reveal rounded bestDeal">
                     <Suspense fallback={<SuspensePhoto />}>
                       <div
-                        className="moviePoster"
+                        className="reveal moviePoster"
                         style={{
                           backgroundImage: `url(${movie.coverPhoto})`,
                           height: "33vw",
@@ -133,6 +133,7 @@ export default function MoviesByUploadedDate() {
                           textDecoration: "none",
                         }}>
                         <div
+                          className="reveal"
                           style={{
                             display: "flex",
                             justifyContent: "space-between",
@@ -140,13 +141,13 @@ export default function MoviesByUploadedDate() {
                           }}>
                           <span>
                             <BsEye
-                              className="d-flex flex-row"
+                              className="reveal d-flex flex-row"
                               style={{ alignItems: "center" }}
                             />
                             {movie.views}
                           </span>
                           <span
-                            className="d-flex flex-row "
+                            className="d-flex reveal flex-row "
                             style={{ alignItems: "center" }}>
                             <BsStarHalf /> {movie.rating}
                           </span>
@@ -155,8 +156,8 @@ export default function MoviesByUploadedDate() {
                     </Suspense>
                   </div>
                   <div>
-                    <h3>{movie.title}</h3>
-                    <p>{movie.releasedYear}</p>
+                    <h3 className="reveal">{movie.title}</h3>
+                    <p className="reveal">{movie.releasedYear}</p>
                   </div>
                 </div>
               </Link>
@@ -166,12 +167,12 @@ export default function MoviesByUploadedDate() {
         <div className="pagination">
           <button
             onClick={handlePrevious}
-            className="button"
+            className="button reveal"
             disabled={parseInt(page, 10) <= 1}>
             Previous
           </button>
           <button
-            className="button"
+            className="button reveal"
             onClick={handleNext}
             disabled={movies.length < PAGE_SIZE}>
             Next

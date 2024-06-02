@@ -41,24 +41,27 @@ const HeaderText = () => {
   return (
     <div className="headerText text-center fw-lighter my-6">
       <h2
-        className="text-danger"
+        className="reveal"
         style={{ color: "cyan", opacity: "0.8" }}
         ref={textRef1}>
         OXOXOXOXOXOX
       </h2>
       <h2
-        className="text-danger"
+        className="reveal"
         style={{ color: "red", opacity: "0.8" }}
         ref={textRef2}>
         XO
       </h2>
       <h2
-        className="text-danger"
+        className="reveal"
         style={{ color: "cyan", opacity: "0.8" }}
         ref={textRef3}>
         OXOXOXOXXOXOXOXOXOXOXOXOXOXO
       </h2>
-      <h1 ref={textRef4} style={{ color: "lightyellow", opacity: "0.7" }}>
+      <h1
+        className="reveal"
+        ref={textRef4}
+        style={{ color: "lightyellow", opacity: "0.7" }}>
         OXOXOXOOXOXOXOXO
       </h1>
     </div>

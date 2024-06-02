@@ -55,7 +55,7 @@ export default function Header() {
     <>
       <div className="slideshow-container d-flex flex-column vh-100">
         <div
-          className={`slide ${fade} header`}
+          className={`slide ${fade} header reveal`}
           style={{
             backgroundImage: `url("${images[currentImageIndex]}")`,
             backgroundPosition: "center",
@@ -66,13 +66,13 @@ export default function Header() {
           }}>
           <NavBar />
           <div className="headMid">
-            <div className="headerArrow">
+            <div className="headerArrow reveal">
               <FaArrowLeft onClick={handleLeftArrowClick} />
             </div>
             <div>
               <HeaderText />
             </div>
-            <div className="headerArrow">
+            <div className="headerArrow reveal">
               <FaArrowRight onClick={handleRightArrowClick} />
             </div>
           </div>

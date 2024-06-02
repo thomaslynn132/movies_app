@@ -4,7 +4,7 @@ function AnimePage() {
   return (
     <>
       <Header />
-      Hello
+      <h1>Coming Soon</h1>
     </>
   );
 }

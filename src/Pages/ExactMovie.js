@@ -163,70 +163,74 @@ export default function ExactMovie() {
                 {coverPhotoMetadata && (
                   <div>
                     <img
+                      className="reveal"
                       src={coverPhotoMetadata.imageUrl}
                       alt="Cover Preview"
                     />
-                    <p>{coverPhotoMetadata.title}</p>
-                    <p>{coverPhotoMetadata.description}</p>
+                    <p className="reveal">{coverPhotoMetadata.title}</p>
+                    <p className="reveal">{coverPhotoMetadata.description}</p>
                   </div>
                 )}
                 <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
                 <div>
-                  <label>Resolution:</label>
+                  <label className="reveal">Resolution:</label>
                   <button
-                    className={`good exactMovieButton ${
+                    className={`good reveal exactMovieButton ${
                       quality === "360p" ? "activeButton" : ""
                     }`}
                     onClick={() => changeQuality("360p")}>
                     360p
                   </button>
                   <button
-                    className={`good exactMovieButton ${
+                    className={`good reveal exactMovieButton ${
                       quality === "720p" ? "activeButton" : ""
                     }`}
                     onClick={() => changeQuality("720p")}>
                     720p
                   </button>
                   <button
-                    className={`good exactMovieButton ${
+                    className={`good reveal exactMovieButton ${
                       quality === "1080p" ? "activeButton" : ""
                     }`}
                     onClick={() => changeQuality("1080p")}>
                     1080p
                   </button>
                   <br />
-                  <p ref={qualityRef} style={{ fontFamily: "fantasy" }}>
+                  <p
+                    className="reveal"
+                    ref={qualityRef}
+                    style={{ fontFamily: "fantasy" }}>
                     Now playing as {quality}.
                   </p>
                 </div>
                 <div>
-                  <label>Download:</label>
+                  <label className="reveal">Download:</label>
                   <a href={additionalData.sd}>
                     <button
                       onClick={onClickGood}
-                      className="good exactMovieButton">
+                      className="good reveal exactMovieButton">
                       360p
                     </button>
                   </a>
                   <a href={additionalData.hd}>
                     <button
                       onClick={onClickGood}
-                      className="good exactMovieButton">
+                      className="good reveal exactMovieButton">
                       720p
                     </button>
                   </a>
                   <a href={additionalData.fhd}>
                     <button
                       onClick={onClickGood}
-                      className="good exactMovieButton">
+                      className="good reveal exactMovieButton">
                       1080p
                     </button>
                   </a>
                 </div>
-                <h2 ref={titleRef} className="movieTitle fs-1">
+                <h2 ref={titleRef} className="reveal movieTitle fs-1">
                   {additionalData.title}
                 </h2>
-                <p ref={detailsRef} className="releasedYear">
+                <p ref={detailsRef} className="reveal releasedYear">
                   Released Year: {additionalData.releasedYear} <br />
                   IMDb Rating: {additionalData.rating} <br />
                   Genres:{" "}
@@ -236,13 +240,13 @@ export default function ExactMovie() {
                         key={index}
                         type="button"
                         style={{ height: "40px", width: "auto" }}
-                        className="button btn btn-info">
+                        className="reveal button btn btn-info">
                         {genre}
                       </button>
                     </Link>
                   ))}
                 </p>
-                <p ref={detailsRef} className="Review">
+                <p ref={detailsRef} className="reveal Review">
                   {additionalData.review}
                 </p>
               </div>

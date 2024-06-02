@@ -21,7 +21,7 @@ const VideoPlayer = ({ options, onReady }) => {
       player.autoplay(options.autoplay);
       player.src(options.sources);
     }
-  }, [options, videoRef]);
+  }, [options, onReady, videoRef]);
 
   useEffect(() => {
     const player = playerRef.current;
@@ -32,7 +32,7 @@ const VideoPlayer = ({ options, onReady }) => {
         playerRef.current = null;
       }
     };
-  }, [playerRef]);
+  }, []);
 
   return (
     <div>

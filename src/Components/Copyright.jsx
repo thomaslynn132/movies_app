@@ -5,6 +5,7 @@ const CopyrightNotice = () => {
 
   return (
     <div
+      className="reveal"
       style={{
         backgroundImage: `url(${background2})`, // Use url() function
         backgroundSize: "75px",
