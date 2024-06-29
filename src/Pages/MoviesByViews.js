@@ -167,7 +167,7 @@ export default function MoviesByViews() {
         <div className="reveal pagination">
           <button
             onClick={handlePrevious}
-            className="buttonreveal"
+            className="button reveal"
             disabled={parseInt(page, 10) <= 1}>
             Previous
           </button>

@@ -198,25 +198,24 @@ h2 {
   align-items: center;
   justify-content: center;
 }
-.searchBar {
-  font-weight: bolder;
-}
-.moviePoster:hover {
-  transition: 1.5s;
-  width: 23vw;
-  height: 38vw;
+.bestDealShadowAdd:hover {
+  background-color: #7b7b7b;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  transition: 2s;
 }
 .bestDealShadowAdd:hover {
-  margin: 25px;
-  transition: 3.5s;
+  scale: 1.1;
+  transition: 2s;
+  border-radius: 5px;
 }
 .bestDeal {
   margin: 5px;
-  background-color: rgb(142, 142, 142, 0.5);
 }
 .bestDeal:hover {
   background-color: #c1c1c16d;
-  transition: 1.5s;
+  transition: 2s;
   .fs-4 {
     transition: 1s;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8),

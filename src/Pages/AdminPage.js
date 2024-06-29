@@ -72,7 +72,7 @@ export default function AdminPage({ onMovieSubmit }) {
 
   return (
     <div>
-      <h2>Admin Page</h2>
+      <h2 className="m-3">Admin Page</h2>
       <form onSubmit={handleSubmit} className="MovieSubmitForm">
         <label>
           Movie Title:
@@ -156,6 +156,10 @@ export default function AdminPage({ onMovieSubmit }) {
         <br />
         <button type="submit">Submit</button>
       </form>
+      <h2>
+        Note: Since this project is for my personal use, I don't decorate admin
+        pages.
+      </h2>
     </div>
   );
 }

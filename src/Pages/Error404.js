@@ -10,7 +10,7 @@ const Error404 = () => {
       <p className="reveal">
         The page you are looking for might not exist or has been moved.
       </p>
-      <Link href="/">
+      <Link to="/">
         <button className="button reveal">Go to Home Page</button>
       </Link>
     </div>

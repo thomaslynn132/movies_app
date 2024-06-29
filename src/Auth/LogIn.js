@@ -38,6 +38,11 @@ const LogIn = () => {
         />
         <button type="submit">Login</button>
       </form>
+      <p>
+        Email is <b>tester@shalkyi.com</b>
+        <br />
+        And password is <b>tester</b>
+      </p>
     </div>
   );
 };

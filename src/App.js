@@ -2,7 +2,6 @@ import "./App.css";
 import React, { useEffect } from "react";
 import "react-bootstrap";
 import { Router } from "./Components/router";
-import { background } from "./Assets";
 import CopyrightNotice from "./Components/Copyright";
 import ScrollReveal from "scrollreveal";
 function App() {
@@ -17,12 +16,7 @@ function App() {
   }, []);
   return (
     <>
-      <div
-        className="App"
-        style={{
-          backgroundImage: `url(${background})`, // Use url() function
-          backgroundSize: "80px",
-        }}>
+      <div className="App">
         <Router />
       </div>
       <CopyrightNotice />

@@ -12,7 +12,7 @@ export default function ExactMovie() {
   const [quality, setQuality] = useState("720p");
   const playerRef = useRef(null);
   const [coverPhotoMetadata, setCoverPhotoMetadata] = useState(null);
-
+  const [seeLess, setSeeLess] = useState(true);
   const qualityRef = useRef(null); // Ref for quality text
   const titleRef = useRef(null); // Ref for movie title
   const detailsRef = useRef(null); // Ref for movie details
@@ -148,6 +148,10 @@ export default function ExactMovie() {
         ]
       : [],
   };
+  // const showless = additionalData.review.length
+  // const toggleShowFullReview  = () =>{
+
+  // }
 
   return (
     <div>
@@ -246,8 +250,15 @@ export default function ExactMovie() {
                     </Link>
                   ))}
                 </p>
-                <p ref={detailsRef} className="reveal Review">
-                  {additionalData.review}
+                <p
+                  ref={detailsRef}
+                  className="reveal Review"
+                  onClick={() => {
+                    setSeeLess(!seeLess);
+                  }}>
+                  {seeLess
+                    ? additionalData.review.substring(0, 200) + "......"
+                    : additionalData.review}
                 </p>
               </div>
             </div>
