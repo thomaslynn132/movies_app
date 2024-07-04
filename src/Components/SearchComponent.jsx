@@ -22,11 +22,7 @@ function Search() {
 
   return (
     <>
-      <FaSearch
-        onClick={handleSearchClick}
-        className="exactMovieButton reveal"
-      />
-      {showSearchInput && (
+      {showSearchInput ? (
         <div>
           <input
             type="text"
@@ -39,7 +35,15 @@ function Search() {
           <button onClick={handleSearch} className="button reveal">
             <FaSearch />
           </button>
+          <button onClick={() => setShowSearchInput(false)} className="button">
+            Cancel
+          </button>
         </div>
+      ) : (
+        <FaSearch
+          onClick={handleSearchClick}
+          className="exactMovieButton reveal"
+        />
       )}
     </>
   );

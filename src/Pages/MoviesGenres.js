@@ -5,7 +5,9 @@ import GenresList from "../Components/GenresList";
 export default function MovieGenres() {
   return (
     <>
-      <NavBar />
+      <div className="navBarBgAdd">
+        <NavBar />
+      </div>
       <GenresList />
     </>
   );

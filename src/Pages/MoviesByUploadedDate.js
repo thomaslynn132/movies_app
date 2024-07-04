@@ -91,7 +91,9 @@ export default function MoviesByUploadedDate() {
       <Helmet>
         <title>Recently Posted Movies</title>
       </Helmet>
-      <NavBar />
+      <div className="navBarBgAdd">
+        <NavBar />
+      </div>
       <div className="my-5" style={{ marginLeft: "5vw", marginRight: "5vw" }}>
         <h1 className="reveal">Recently Posted Movies</h1>
         {loading ? (
@@ -100,25 +102,14 @@ export default function MoviesByUploadedDate() {
           <div
             className="reveal popularMovies"
             style={{ width: "90vw", display: "inline" }}>
-            {movies.map((movie) => (
-              <Link
-                key={movie.id}
-                to={`/movies/${movie.id}`}
-                style={{ display: "inline-block" }}>
-                <div
-                  className="reveal bestDealShadowAdd"
-                  style={{
-                    width: "20vw",
-                    display: "grid",
-                    margin: "7px",
-                    textDecoration: "none",
-                    color: "black",
-                    textAlign: "start",
-                  }}>
-                  <div className="reveal rounded bestDeal">
+            {movies.map((movie, index) => (
+              <Link key={index} to={`/movies/${movie.id}`}>
+                <div className={"d-flex flex-column bestDealShadowAdd"}>
+                  <div className="rounded reveal bestDeal">
                     <Suspense fallback={<SuspensePhoto />}>
+                      {" "}
                       <div
-                        className="reveal moviePoster"
+                        className="moviePoster reveal"
                         style={{
                           backgroundImage: `url(${movie.coverPhoto})`,
                           height: "33vw",
@@ -141,13 +132,13 @@ export default function MoviesByUploadedDate() {
                           }}>
                           <span>
                             <BsEye
-                              className="reveal d-flex flex-row"
+                              className="d-flex flex-row reveal"
                               style={{ alignItems: "center" }}
                             />
                             {movie.views}
                           </span>
                           <span
-                            className="d-flex reveal flex-row "
+                            className="d-flex flex-row reveal"
                             style={{ alignItems: "center" }}>
                             <BsStarHalf /> {movie.rating}
                           </span>

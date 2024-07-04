@@ -47,7 +47,9 @@ const SearchResults = () => {
 
   return (
     <div>
-      <NavBar />
+      <div className="navBarBgAdd">
+        <NavBar />
+      </div>
       <h2 className="reveal">Search Results</h2>
       <div
         className="popularMovies reveal"

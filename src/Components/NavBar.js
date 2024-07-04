@@ -4,7 +4,7 @@ import Menu from "./Menu";
 import { Link } from "react-router-dom";
 function NavBar() {
   return (
-    <div className="navBar reveal">
+    <div className="navBar">
       <div>
         <Link to="/">
           <img className="reveal" src={pi} alt="Logo" height={50} />

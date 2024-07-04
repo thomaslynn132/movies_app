@@ -3,8 +3,9 @@ import NavBar from "../Components/NavBar";
 export default function ContactUs() {
   return (
     <>
-      <NavBar />
+      <div className="navBarBgAdd">
+        <NavBar />
+      </div>
     </>
   );
 }
-

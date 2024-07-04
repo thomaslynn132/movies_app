@@ -37,7 +37,7 @@ const HeaderText = () => {
   }); // Empty dependency array to run only once
   useEffect(() => {
     scrambleText(textRef4.current, "Anytime Anywhere", 10);
-  }, 10000);
+  }, []);
   return (
     <div className="headerText text-center fw-lighter my-6">
       <h2

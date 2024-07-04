@@ -61,15 +61,17 @@ export default function PopularMovies() {
 
   return (
     <>
-      <div className="my-5" style={{ marginLeft: "5vw", marginRight: "5vw" }}>
+      <div
+        className="container"
+        style={{ marginLeft: "5vw", marginRight: "5vw" }}>
         <h1 className="reveal">Popular Movies</h1>
-        <div className="popularMovies imgCtn reveal">
+        <div className="popularMoviesComp imgCtn reveal">
           <div className="dealsArrow" onClick={handleLeftArrowClick}>
             <FaArrowLeft />
           </div>
 
           <div
-            className="popularMovies"
+            className="popularMoviesComp"
             style={{
               width: "80vw",
               alignItems: "center",
@@ -78,10 +80,10 @@ export default function PopularMovies() {
             {movies.map((movie, index) => (
               <Link key={index} to={`/movies/${movie.id}`}>
                 <div
-                  className={"d-flex flex-column bestDealShadowAdd"}
+                  className={" bestDealShadowAdd"}
                   style={{
                     transform: `translateX(-${currentIndex * (225 + 10)}px)`,
-                    transition: "transform 0.5s ease-in-out",
+                    transition: "transform 1s ease-in-out",
                   }}>
                   <div className="rounded reveal bestDeal">
                     <Suspense fallback={<SuspensePhoto />}>

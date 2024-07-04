@@ -78,11 +78,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-.header {
-  align-items: center;
-  justify-content: space-between;
-  display: block;
-}
 .activeButton {
   background-color: rgba(0, 255, 255, 0.546);
   box-shadow: 5px 5px 0px 0px;
@@ -111,7 +106,7 @@ h2 {
 .button:hover {
   color: rgb(168, 0, 0);
   size: 110%;
-  transition: 2.5s;
+  transition: 1s;
   border: 0px;
   background-color: #000000;
   font-weight: bolder;
@@ -193,19 +188,23 @@ h2 {
   height: 200px;
   width: 225px;
 }
+.navBarBgAdd {
+  background-color: #ffffff52;
+}
 .bestDealShadowAdd {
   box-sizing: border-box;
   align-items: center;
   justify-content: center;
+  margin: 10px;
+  display: inline-block;
+  padding: 10px;
+  max-width: 150px;
 }
 .bestDealShadowAdd:hover {
   background-color: #7b7b7b;
   box-sizing: border-box;
   align-items: center;
   justify-content: center;
-  transition: 2s;
-}
-.bestDealShadowAdd:hover {
   scale: 1.1;
   transition: 2s;
   border-radius: 5px;
@@ -213,6 +212,7 @@ h2 {
 .bestDeal {
   margin: 5px;
 }
+/* }
 .bestDeal:hover {
   background-color: #c1c1c16d;
   transition: 2s;
@@ -228,7 +228,7 @@ h2 {
     transform: scaleX(0.7);
     transform: rotate(20deg);
   }
-}
+} */
 .vapes {
   align-items: center;
 }
@@ -254,6 +254,7 @@ h2 {
 .App {
   text-align: center;
   overflow: hidden;
+  background-color: gold;
 }
 .icon {
   width: 80vw;
@@ -269,18 +270,18 @@ h2 {
   font-size: 16px; /* Set the font size */
 }
 .footer {
-  display: inline;
-  width: 100vw;
+  width: auto;
+  margin-top: 15px;
+  background-color: #000000;
+  color: rgba(0, 255, 255, 0.794);
   align-items: flex-start;
   box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 25px;
 }
-.footerContent {
-  width: 30%;
-  height: auto;
-  display: inline-block;
-  margin: 25px;
-  box-sizing: border-box;
-}
+
 .viewBtn:hover {
   background-color: #7b7b7b;
   color: rgb(0, 0, 0);
@@ -325,7 +326,11 @@ h2 {
   justify-content: center;
   box-sizing: content-box;
 }
-
+.container {
+  margin: 15px;
+  padding: 15px;
+  background-color: goldenrod;
+}
 .Review {
   font-size: medium;
   color: #e6b140;
@@ -334,22 +339,23 @@ h2 {
   text-shadow: #121212;
   -webkit-text-stroke: 0.7px rgb(0, 0, 0);
 }
-.product-container:hover {
-  background-color: rgba(198, 198, 198, 0.5);
-  transition: 1s;
-}
 
 .slideshowContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   min-height: 100vh;
+  width: auto;
 }
 .popularMovies {
+  display: inline;
+}
+.popularMoviesComp {
   display: flex;
   flex-direction: row;
 }
+
 .slide {
   background-size: cover;
   background-repeat: no-repeat;

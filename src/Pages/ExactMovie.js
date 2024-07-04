@@ -162,7 +162,9 @@ export default function ExactMovie() {
               <Helmet>
                 <title>{additionalData.title}</title>
               </Helmet>
-              <NavBar />
+              <div className="navBarBgAdd">
+                <NavBar />
+              </div>
               <div className="poster d-flex flex-row">
                 {coverPhotoMetadata && (
                   <div>

@@ -1,16 +1,7 @@
-import { background2 } from "../Assets";
-
 const CopyrightNotice = () => {
-  const currentYear = new Date().getFullYear();
-
   return (
-    <div
-      className="reveal"
-      style={{
-        backgroundImage: `url(${background2})`, // Use url() function
-        backgroundSize: "75px",
-      }}>
-      &copy; Copyright {currentYear}
+    <div className="footer">
+      &copy; Copyright ?
       <br /> Who Cares <br /> &copy;May 2024.
     </div>
   );

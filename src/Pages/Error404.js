@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 const Error404 = () => {
   return (
     <div>
-      <NavBar />
+      <div className="navBarBgAdd">
+        <NavBar />
+      </div>
       <h1 className="reveal">Error 404 - Page Not Found</h1>
       <p className="reveal">
         The page you are looking for might not exist or has been moved.

@@ -1,9 +1,11 @@
-import Header from "../../Components/Header";
+import NavBar from "../../Components/NavBar";
 
 function AnimePage() {
   return (
     <>
-      <Header />
+      <div className="navBarBgAdd">
+        <NavBar />
+      </div>
       <h1>Coming Soon</h1>
     </>
   );

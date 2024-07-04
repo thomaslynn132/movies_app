@@ -10,7 +10,7 @@ import {
   limit,
   getDocs,
 } from "../firebase";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import SuspensePhoto from "./SuspensePhoto";
 
@@ -48,7 +48,7 @@ export default function MoviesByViews() {
   }
   return (
     <>
-      <Container className="my-4">
+      <div className="container">
         <h1 className="text-center mb-4">
           <span className="text-danger reveal">Recently Added Movies</span>
         </h1>
@@ -57,67 +57,55 @@ export default function MoviesByViews() {
           <Col lg={12}>
             <Row>
               {movies.map((movie, index) => (
-                <Link to={`/movies/${movie.id}`} exact>
-                  <Col key={index} md={6} className="mb-4 reveal devImg bsbb">
-                    <div
-                      className="product-container p-3 rounded reveal"
-                      style={{
-                        boxSizing: "border-box",
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "center",
-                        alignItems: "center",
-                      }}>
-                      <div className="nRImgDiv reveal">
-                        <Suspense fallback={<SuspensePhoto />}>
+                <Link key={index} to={`/movies/${movie.id}`}>
+                  <div className={"d-flex flex-row bestDealShadowAdd"}>
+                    <div className="rounded reveal bestDeal">
+                      <Suspense fallback={<SuspensePhoto />}>
+                        {" "}
+                        <div
+                          className="moviePoster reveal"
+                          style={{
+                            backgroundImage: `url(${movie.coverPhoto})`,
+                            height: "33vw",
+                            width: "20vw",
+                            alignItems: "flex-end",
+                            textAlign: "end",
+                            backgroundPosition: "top",
+                            backgroundSize: "cover",
+                            border: "2px solid",
+                            padding: "3px",
+                            borderRadius: "7%",
+                            textDecoration: "none",
+                          }}>
                           <div
-                            className="moviePoster reveal"
+                            className="reveal"
                             style={{
-                              backgroundImage: `url(${movie.coverPhoto})`,
-                              height: "33vw",
-                              width: "20vw",
+                              display: "flex",
+                              justifyContent: "space-between",
                               alignItems: "flex-end",
-                              textAlign: "end",
-                              backgroundPosition: "top",
-                              backgroundSize: "cover",
-                              border: "2px solid",
-                              padding: "3px",
-                              borderRadius: "7%",
-                              textDecoration: "none",
                             }}>
-                            <div
-                              style={{
-                                display: "flex",
-                                justifyContent: "space-between",
-                                alignItems: "flex-end",
-                              }}>
-                              <span>
-                                <BsEye
-                                  className="d-flex flex-row reveal"
-                                  style={{ alignItems: "center" }}
-                                />
-                                {movie.views}
-                              </span>
-                              <span
+                            <span>
+                              <BsEye
                                 className="d-flex flex-row reveal"
-                                style={{ alignItems: "center" }}>
-                                <BsStarHalf /> {movie.rating}
-                              </span>
-                            </div>
+                                style={{ alignItems: "center" }}
+                              />
+                              {movie.views}
+                            </span>
+                            <span
+                              className="d-flex flex-row reveal"
+                              style={{ alignItems: "center" }}>
+                              <BsStarHalf /> {movie.rating}
+                            </span>
                           </div>
-                        </Suspense>
-                      </div>
-
-                      <div className="text-dark">
-                        <p className="font-weight-bold reveal">
-                          {movie.title} <br />
-                          {movie.rating}
-                          <br />
-                          {movie.releasedYear}
-                        </p>
-                      </div>
+                        </div>
+                      </Suspense>
                     </div>
-                  </Col>
+                    <div>
+                      <h3 className="reveal">{movie.title}</h3>
+                      <p className="reveal">{movie.releasedYear}</p>
+                    </div>
+                  </div>{" "}
+                  <br />
                 </Link>
               ))}
             </Row>
@@ -131,7 +119,7 @@ export default function MoviesByViews() {
             </button>
           </Link>
         </div>
-      </Container>
+      </div>
     </>
   );
 }

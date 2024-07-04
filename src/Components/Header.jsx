@@ -53,51 +53,62 @@ export default function Header() {
 
   return hideHeader ? (
     <>
-      <div className="slideshow-container d-flex flex-column vh-100">
+      <section
+        className={`slideshow-container slide ${fade}  reveal`}
+        style={{
+          backgroundImage: `url("${images[currentImageIndex]}")`,
+          backgroundPosition: "center",
+          color: "white",
+          fontWeight: "bolder",
+          alignItems: "center",
+          backgroundSize: "cover",
+          display: "flex",
+          width: "100vw",
+          justifyContent: "space-between",
+          flexDirection: "column",
+        }}>
         <div
-          className={`slide ${fade} header reveal`}
           style={{
-            backgroundImage: `url("${images[currentImageIndex]}")`,
-            backgroundPosition: "center",
-            color: "white",
-            fontWeight: "bold",
-            alignItems: "center",
-            backgroundSize: "cover",
+            width: "100vw",
           }}>
           <NavBar />
-          <div className="headMid">
-            <div className="headerArrow reveal">
-              <FaArrowLeft onClick={handleLeftArrowClick} />
-            </div>
-            <div>
-              <HeaderText />
-            </div>
-            <div className="headerArrow reveal">
-              <FaArrowRight onClick={handleRightArrowClick} />
-            </div>
+        </div>{" "}
+        <div
+          className="headMid"
+          style={{
+            width: "100vw",
+          }}>
+          <div className="headerArrow reveal">
+            <FaArrowLeft onClick={handleLeftArrowClick} />
           </div>
           <div>
-            <button
-              className="button"
-              onClick={() => {
-                setHideHeader(false);
-              }}>
-              Watch Now
-            </button>
+            <HeaderText />
           </div>
-          <div className="headerBtn">
-            {[0, 1, 2, 3, 4, 5].map((index) => (
-              <button
-                key={index}
-                type="button"
-                className={`buttn headerBtn rounded m-1 ${
-                  index === currentImageIndex ? "btn-active" : "btn-inactive"
-                }`}
-                onClick={() => handleButtonClick(index)}></button>
-            ))}
+          <div className="headerArrow reveal">
+            <FaArrowRight onClick={handleRightArrowClick} />
           </div>
         </div>
-      </div>
+        <div>
+          <button
+            className="button"
+            onClick={() => {
+              setHideHeader(false);
+            }}>
+            Watch Now
+          </button>
+        </div>
+        <div className="headerBtn">
+          {[0, 1, 2, 3, 4, 5].map((index) => (
+            <button
+              key={index}
+              type="button"
+              className={`buttn headerBtn rounded m-1 ${
+                index === currentImageIndex ? "btn-active" : "btn-inactive"
+              }`}
+              onClick={() => handleButtonClick(index)}></button>
+          ))}
+        </div>
+      </section>
     </>
   ) : (
     <NavBar />
