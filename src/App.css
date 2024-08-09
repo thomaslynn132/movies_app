@@ -21,7 +21,6 @@ body {
   justify-content: space-between;
   position: relative;
 }
-/* Hide the scrollbar in WebKit/Blink browsers */
 body::-webkit-scrollbar {
   display: none;
 }
@@ -201,7 +200,6 @@ h2 {
   max-width: 150px;
 }
 .bestDealShadowAdd:hover {
-  background-color: #7b7b7b;
   box-sizing: border-box;
   align-items: center;
   justify-content: center;
